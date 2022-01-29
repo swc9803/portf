@@ -1,30 +1,44 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <Progress ref="progress" />
+  <router-view />
+  <Footer />
 </template>
+
+<script>
+import Progress from '@/components/Progress'
+import Footer from '@/components/Footer'
+import { onMounted, ref } from 'vue'
+
+export default {
+  components: {
+    Progress,
+    Footer
+  },
+  setup () {
+    const progressbar = ref()
+    const scrollEvent = () => {
+      this.$refs.progress.changeProgress()
+    }
+    onMounted(() => {
+      document.addEventListener('scroll', scrollEvent)
+    })
+    return {
+      progressbar, scrollEvent
+    }
+  }
+}
+</script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
