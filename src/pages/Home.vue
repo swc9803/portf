@@ -1,7 +1,7 @@
 <template>
   <div class="background" />
   <div class="container first">
-    <SpaceBackground />
+    <SpaceBackground class="space" />
     <div class="wrapper">
       <!-- 최성우 누르면 소개페이지로 -->
       <p ref="mainText">끝없이 배움을 추구하는 웹퍼블리셔
@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import SpaceBackground from '@/components/home/first/SpaceBackground'
-import Snow from '@/components/home/second/Snow'
+import SpaceBackground from '@/components/home/SpaceBackground'
+import Snow from '@/components/home/SnowBackground'
 import gsap from 'gsap'
 import { onMounted, ref } from 'vue'
 
@@ -115,7 +115,7 @@ export default {
 }
 
 .first {
-  canvas {
+  .space {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -176,9 +176,17 @@ export default {
       .picture,
       .introduce {
         width: 40%;
+        height: 500px;
         margin: 6% 5% 0 5%;
         background: rgba(255, 255, 255, 0.7);
+        transition: 1s;
       }
+        .picture:hover {
+         transform: perspective(350px) rotateY(10deg);
+        }
+        .introduce:hover {
+         transform: perspective(350px) rotateY(-10deg);
+        }
     }
   }
 }

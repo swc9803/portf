@@ -1,5 +1,5 @@
 <template>
-  <Progress ref="progress" />
+  <Progress ref="progressbar" />
   <router-view />
   <Footer />
 </template>
@@ -17,7 +17,7 @@ export default {
   setup () {
     const progressbar = ref()
     const scrollEvent = () => {
-      this.$refs.progress.changeProgress()
+      progressbar.value.changeProgress()
     }
     onMounted(() => {
       document.addEventListener('scroll', scrollEvent)
