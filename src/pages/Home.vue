@@ -57,6 +57,15 @@ export default {
     const star = ref()
     const stars = ref([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 
+    const setRandomPosition = () => {
+      for (var i = 0; i < 4; i++) {
+        gsap.set(array.value[i], {
+          xPercent: gsap.utils.random(0, 850),
+          yPercent: gsap.utils.random(0, 250)
+        })
+      }
+    }
+
     const goToSecond = () => {
       const secondLocation = document.querySelector('.second').offsetTop
       scrollTo({ top: secondLocation, behavior: 'smooth' })
@@ -67,35 +76,21 @@ export default {
         opacity: 0, yPercent: -100, pointerEvents: 'none', duration: 1, ease: 'ease-out', delay: 1
       })
       for (var i = 0; i < 4; i++) {
-        gsap.set(array.value[i], {
-          xPercent: gsap.utils.random(0, 900),
-          yPercent: gsap.utils.random(0, 300)
-        })
         gsap.to(array.value[i], {
-          // xPercent: gsap.utils.random(0, 900),
-          // yPercent: gsap.utils.random(0, 300),
           opacity: 0,
-          scale: 2,
-          duration: 0.3,
-          yoyo: true,
+          scale: 3,
+          duration: 0.5,
           onComplete () {
-            gsap.delayedCall(gsap.utils.random(2, 5, 0.1), () => this.restart())
+            gsap.delayedCall(gsap.utils.random(2, 5, 0.1), () => {
+              setRandomPosition()
+              this.restart()
+            })
           }
         })
       }
-      // gsap.utils.toArray(array.value).forEach(function (star) {
-      //   gsap.to(star, {
-      //     opacity: 0,
-      //     scale: 2,
-      //     duration: 0.5,
-      //     repeat: -1,
-      //     repeatDelay: gsap.utils.random(1.5, 2, 0.1),
-      //     repeatRefresh: true
-      //   })
-      // })
     })
     return {
-      goToSecond, mainText, twinkle, star, stars, array
+      mainText, array, twinkle, star, stars, setRandomPosition, goToSecond
     }
   },
   components: {
@@ -180,13 +175,14 @@ export default {
         margin: 6% 5% 0 5%;
         background: rgba(255, 255, 255, 0.7);
         transition: 1s;
+        box-shadow: 4px 4px 5px rgb(88, 88, 88) ;
+        &.picture:hover {
+         transform: perspective(600px) rotateY(8deg);
+        }
+        &.introduce:hover {
+         transform: perspective(600px) rotateY(-8deg);
+        }
       }
-        .picture:hover {
-         transform: perspective(350px) rotateY(10deg);
-        }
-        .introduce:hover {
-         transform: perspective(350px) rotateY(-10deg);
-        }
     }
   }
 }

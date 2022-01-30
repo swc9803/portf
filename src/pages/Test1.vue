@@ -1,13 +1,12 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <!-- 주석 자세히 -->
+  <div class="test">
+    <h1>This is an test page</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'View'
+
 }
 </script>
 
