@@ -1,17 +1,17 @@
 <template>
-  <Progress ref="progressbar" />
+  <Navbar ref="progressbar" />
   <router-view />
   <Footer />
 </template>
 
 <script>
-import Progress from '@/components/Progress'
+import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { onMounted, ref } from 'vue'
 
 export default {
   components: {
-    Progress,
+    Navbar,
     Footer
   },
   setup () {
