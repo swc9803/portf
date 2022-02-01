@@ -1,3 +1,13 @@
+$titleColor: rgb(255, 255, 175);
+$titleFontSize: 1.8em;
+
+@font-face {
+  font-family: 'KOTRALEAP';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRALEAP.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .background {
   position: absolute;
   width: 100%;
