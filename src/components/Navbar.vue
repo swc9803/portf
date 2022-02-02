@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav ref="navbar">
     <div class="menu">
       <p class="title" @click="moveToTop">SUNGWOO</p>
       <div>
@@ -15,11 +15,14 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-// import gsap from 'gsap'
+import { onMounted, ref } from 'vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 export default {
   setup (props, { emit }) {
+    const navbar = ref()
     // 각각 해당하는 위치로 스크롤 이동
     const moveToTop = () => {
       scrollTo({ top: 0, behavior: 'smooth' })
@@ -46,7 +49,32 @@ export default {
         progressbar.value.style.width = `${(scrollTop / height) * 100}%`
       })
     }
+
+    onMounted(() => {
+      // 내리면 navBar 글 색이 변하는 애니메이션
+      const navBarColor = gsap.from(navbar.value, {
+        background: '#ffffff',
+        duration: 0.2,
+        ease: 'none'
+      }).progress(1)
+      navBarColor.pause()
+      const menuColor = gsap.to('p', {
+        color: '#ffffff',
+        duration: 0.1,
+        ease: 'none'
+      }).progress(1)
+      menuColor.pause()
+      ScrollTrigger.create({
+        start: '10%',
+        end: 'bottom',
+        onUpdate: (self) => {
+          self.direction === -1 ? navBarColor.play() : navBarColor.reverse()
+          self.direction === -1 ? menuColor.play() : menuColor.reverse()
+        }
+      })
+    })
     return {
+      navbar,
       moveToTop,
       moveToAboutme,
       moveToSkills,
@@ -70,7 +98,6 @@ nav {
   left: 0;
   z-index: 3;
   opacity: 0.8;
-  // background: white;
   color: white;
   line-height: 100px;
   .menu {
@@ -83,6 +110,7 @@ nav {
     text-align: center;
     letter-spacing: 4px;
     p {
+      color: rgb(116, 106, 85);
       cursor: pointer;
       margin: 0;
     }
@@ -92,7 +120,6 @@ nav {
     div {
       display: flex;
       p {
-        // color: rgb(116, 106, 85);
         margin-left: 24px;
       }
     }
@@ -102,8 +129,8 @@ nav {
     top: 100px;
     width: 0%;
     height: 5px;
-    mix-blend-mode: difference;
-    will-change: transform;
+    // mix-blend-mode: difference;
+    // will-change: transform;
     background: rgb(255, 255, 255);
   }
 }
@@ -111,7 +138,6 @@ nav {
   nav {
     height: 70px;
     line-height: 70px;
-    background: white;
     color: rgb(116, 106, 85);
     .menu {
       .title {
@@ -124,6 +150,9 @@ nav {
         visibility: hidden;
       }
     }
+  }
+  .progress {
+    top: 70px !important;
   }
 }
 @media screen and (max-width: 480px) {

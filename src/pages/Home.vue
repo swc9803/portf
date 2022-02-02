@@ -1,5 +1,5 @@
 <template>
-  <Navbar ref="progressbar"
+  <Navbar class="navbar" ref="progressbar"
     @moveToAboutme="moveToAboutme"
     @moveToSkills="moveToSkills"
     @moveToMyworks="moveToMyworks"
@@ -73,19 +73,23 @@ export default {
     }
     const moveToAboutme = () => {
       const aboutmeLocation = aboutme.value.offsetTop
-      scrollTo({ top: aboutmeLocation, behavior: 'smooth' })
+      const menuHeight = document.querySelector('.navbar').offsetHeight
+      scrollTo({ top: aboutmeLocation - menuHeight, behavior: 'smooth' })
     }
     const moveToSkills = () => {
       const skillsLocation = skills.value.offsetTop
-      scrollTo({ top: skillsLocation, behavior: 'smooth' })
+      const menuHeight = document.querySelector('.navbar').offsetHeight
+      scrollTo({ top: skillsLocation - menuHeight, behavior: 'smooth' })
     }
     const moveToMyworks = () => {
       const myworksLocation = myworks.value.offsetTop
-      scrollTo({ top: myworksLocation, behavior: 'smooth' })
+      const menuHeight = document.querySelector('.navbar').offsetHeight
+      scrollTo({ top: myworksLocation - menuHeight, behavior: 'smooth' })
     }
     const moveToContact = () => {
       const contactLocation = contact.value.offsetTop
-      scrollTo({ top: contactLocation, behavior: 'smooth' })
+      const menuHeight = document.querySelector('.navbar').offsetHeight
+      scrollTo({ top: contactLocation - menuHeight, behavior: 'smooth' })
     }
     const snowAni1 = () => {
       var timer = setTimeout(function () {
@@ -211,7 +215,7 @@ export default {
   .wrapper {
     position: relative;
     .about {
-      margin: 5% 0 5%;
+      padding: 5% 0 5%;
       text-align: center;
       font-size: $titleFontSize;
       color: $titleColor;
@@ -223,7 +227,6 @@ export default {
       .picture,
       .introduce {
         width: 40%;
-        // height: 500px;
         margin: 6% 5% 0 5%;
         background: rgba(255, 255, 255, 0.7);
         transition: 1s;
@@ -255,13 +258,16 @@ export default {
   }
   .aboutme {
     .wrapper {
-      svg {
-        width: 8em;
+      .about {
+        padding: 3% 0 3%;
       }
       .flex {
         .picture,
         .introduce {
           flex: 0 0 90%;
+        }
+        .introduce {
+          margin-top: 20%;
         }
       }
     }
