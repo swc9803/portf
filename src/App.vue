@@ -1,30 +1,16 @@
 <template>
-  <Navbar ref="progressbar" />
   <router-view />
   <Footer />
 </template>
 
 <script>
-import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { onMounted, ref } from 'vue'
 
 export default {
   components: {
-    Navbar,
     Footer
   },
   setup () {
-    const progressbar = ref()
-    const scrollEvent = () => {
-      progressbar.value.changeProgress()
-    }
-    onMounted(() => {
-      document.addEventListener('scroll', scrollEvent)
-    })
-    return {
-      progressbar, scrollEvent
-    }
   }
 }
 </script>

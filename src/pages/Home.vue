@@ -1,16 +1,22 @@
 <template>
+  <Navbar ref="progressbar"
+    @moveToAboutme="moveToAboutme"
+    @moveToSkills="moveToSkills"
+    @moveToMyworks="moveToMyworks"
+    @moveToContact="moveToContact"
+  />
   <div class="background" />
-  <div class="container first">
+  <div class="container main">
     <SpaceBackground class="space" />
     <div class="wrapper">
       <!-- 최성우 누르면 소개페이지로 -->
       <p ref="mainText">끝없이 배움을 추구하는 개발자
         <span v-for="star in stars" :key="star.id" class="twinkle" :ref="twinkle">★</span>
-        <b @click="goToSecond"> 최성우 </b>입니다
+        <b @click="moveToAboutme"> 최성우 </b>입니다
       </p>
     </div>
   </div>
-  <div class="container second" ref="second">
+  <div class="container aboutme" ref="aboutme">
     <Snow class="snow" />
     <div class="wrapper">
       <!-- aboutme 글자 흰, 노랑 반짝 색 $titleColor -->
@@ -31,15 +37,19 @@
       </div>
     </div>
   </div>
-  <div class="container third">
+  <div class="container skills" ref="skills">
+    스킬
+  </div>
+  <div class="container myworks" ref="myworks">
     작업물
   </div>
-  <div class="container fourth">
+  <div class="container contact" ref="contact">
     Contact
   </div>
 </template>
 
 <script>
+import Navbar from '@/components/Navbar'
 import SpaceBackground from '@/components/home/SpaceBackground'
 import Snow from '@/components/home/SnowBackground'
 import gsap from 'gsap'
@@ -47,26 +57,36 @@ import { onMounted, ref } from 'vue'
 
 export default {
   setup () {
+    const progressbar = ref()
+    const aboutme = ref()
+    const skills = ref()
+    const myworks = ref()
+    const contact = ref()
     const mainText = ref()
     const array = ref([])
     const twinkle = (el) => array.value.push(el)
     const star = ref()
     const stars = ref([{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }])
 
-    const setRandomPosition = () => {
-      for (var i = 0; i < 4; i++) {
-        gsap.set(array.value[i], {
-          xPercent: gsap.utils.random(0, 850),
-          yPercent: gsap.utils.random(0, 250)
-        })
-      }
+    const scrollEvent = () => {
+      progressbar.value.changeProgress()
     }
-
-    const goToSecond = () => {
-      const secondLocation = document.querySelector('.second').offsetTop
-      scrollTo({ top: secondLocation, behavior: 'smooth' })
+    const moveToAboutme = () => {
+      const aboutmeLocation = aboutme.value.offsetTop
+      scrollTo({ top: aboutmeLocation, behavior: 'smooth' })
     }
-
+    const moveToSkills = () => {
+      const skillsLocation = skills.value.offsetTop
+      scrollTo({ top: skillsLocation, behavior: 'smooth' })
+    }
+    const moveToMyworks = () => {
+      const myworksLocation = myworks.value.offsetTop
+      scrollTo({ top: myworksLocation, behavior: 'smooth' })
+    }
+    const moveToContact = () => {
+      const contactLocation = contact.value.offsetTop
+      scrollTo({ top: contactLocation, behavior: 'smooth' })
+    }
     const snowAni1 = () => {
       var timer = setTimeout(function () {
         gsap.to('.piledsnow1', {
@@ -87,8 +107,16 @@ export default {
         clearTimeout(timer)
       })
     }
-
+    const setRandomPosition = () => {
+      for (var i = 0; i < 4; i++) {
+        gsap.set(array.value[i], {
+          xPercent: gsap.utils.random(0, 850),
+          yPercent: gsap.utils.random(0, 250)
+        })
+      }
+    }
     onMounted(() => {
+      document.addEventListener('scroll', scrollEvent)
       gsap.from(mainText.value, {
         opacity: 0, yPercent: -100, pointerEvents: 'none', duration: 1, ease: 'ease-out', delay: 1
       })
@@ -107,11 +135,28 @@ export default {
       }
     })
     return {
-      mainText, array, twinkle, star, stars, setRandomPosition, goToSecond, snowAni1, snowAni2
+      aboutme,
+      skills,
+      myworks,
+      contact,
+      moveToAboutme,
+      moveToSkills,
+      moveToMyworks,
+      moveToContact,
+      mainText,
+      array,
+      twinkle,
+      star,
+      stars,
+      setRandomPosition,
+      snowAni1,
+      snowAni2,
+      progressbar,
+      scrollEvent
     }
   },
   components: {
-    SpaceBackground, Snow
+    SpaceBackground, Snow, Navbar
   }
 }
 </script>
@@ -119,7 +164,7 @@ export default {
 <style lang="scss" scoped>
 @import '@/style/Mainstyle';
 
-.first {
+.main {
   .space {
     position: absolute;
     width: 100%;
@@ -158,7 +203,7 @@ export default {
   }
 }
 
-.second {
+.aboutme {
   .snow {
     position: absolute;
     width: 100%;
@@ -201,14 +246,14 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
-  .first {
+  .main {
     .wrapper {
       p {
         font-size: 1.5em;
       }
     }
   }
-  .second {
+  .aboutme {
     .wrapper {
       svg {
         width: 8em;

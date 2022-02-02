@@ -1,12 +1,14 @@
 <template>
   <nav>
     <div class="menu">
-      <p class="title">SUNGWOO</p>
+      <p class="title" @click="moveToTop">SUNGWOO</p>
+      <div>
       <!-- 호버시 위로 넘어가는 flip? 이벤트 -->
-      <p>About me</p>
-      <p>Skills</p>
-      <p>My works</p>
-      <p>Contact</p>
+        <p @click="moveToAboutme">About me</p>
+        <p @click="moveToSkills">Skills</p>
+        <p @click="moveToMyworks">My works</p>
+        <p @click="moveToContact">Contact</p>
+      </div>
     </div>
     <div class="progress" ref="progressbar" />
   </nav>
@@ -14,9 +16,28 @@
 
 <script>
 import { ref } from 'vue'
+// import gsap from 'gsap'
 
 export default {
-  setup () {
+  setup (props, { emit }) {
+    // 각각 해당하는 위치로 스크롤 이동
+    const moveToTop = () => {
+      scrollTo({ top: 0, behavior: 'smooth' })
+    }
+    const moveToAboutme = () => {
+      emit('moveToAboutme')
+    }
+    const moveToSkills = () => {
+      emit('moveToSkills')
+    }
+    const moveToMyworks = () => {
+      emit('moveToMyworks')
+    }
+    const moveToContact = () => {
+      emit('moveToContact')
+    }
+
+    // progressbar
     const progressbar = ref()
     const changeProgress = () => {
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
@@ -26,7 +47,13 @@ export default {
       })
     }
     return {
-      progressbar, changeProgress
+      moveToTop,
+      moveToAboutme,
+      moveToSkills,
+      moveToMyworks,
+      moveToContact,
+      progressbar,
+      changeProgress
     }
   }
 }
@@ -50,23 +77,23 @@ nav {
     position: relative;
     transform: translate(-50%);
     left: 50%;
+    display: flex;
+    justify-content: space-between;
     width: 80%;
     text-align: center;
     letter-spacing: 4px;
     p {
       cursor: pointer;
       margin: 0;
-      &:first-child {
-        font-size: 1.6em;
-        float: left;
-      }
-      &:not(.title) {
-        float: right;
-        margin-left: 24px;
+    }
+    .title {
+      font-size: 1.6em;
+    }
+    div {
+      display: flex;
+      p {
         // color: rgb(116, 106, 85);
-        &:not(.title):hover {
-          color: $titleColor;
-        }
+        margin-left: 24px;
       }
     }
   }
@@ -82,16 +109,19 @@ nav {
 }
 @media screen and (max-width: 800px) {
   nav {
+    height: 70px;
+    line-height: 70px;
+    background: white;
+    color: rgb(116, 106, 85);
     .menu {
-      p {
-        &:first-child {
-          float: none;
-          font-size: 1.6em;
-          text-align: center;
-        }
-        &:not(.title) {
-          visibility: hidden;
-        }
+      .title {
+        position: relative;
+        transform: translate(-50%);
+        left: 50%;
+        font-size: 1.6em;
+      }
+      div {
+        visibility: hidden;
       }
     }
   }
