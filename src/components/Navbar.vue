@@ -169,7 +169,6 @@ nav {
   left: 0;
   z-index: 3;
   opacity: 0.8;
-  color: white;
   line-height: 100px;
   .menu {
     position: relative;
@@ -203,16 +202,17 @@ nav {
     height: 30px;
     position: absolute;
     top: 10px;
-    right: 40px;
+    right: 4%;
   }
   .progress {
     position: absolute;
     top: 100px;
     width: 0%;
     height: 5px;
-    // mix-blend-mode: difference;
-    // will-change: transform;
-    background: rgb(255, 255, 255);
+    mix-blend-mode: difference;
+    will-change: transform;
+    background: rgb(0, 0, 0);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
   }
 }
 @media screen and (max-width: 800px) {
@@ -221,16 +221,22 @@ nav {
     line-height: 70px;
     color: rgb(116, 106, 85);
     .menu {
+      width: 100%;
       .title {
         position: relative;
+        height: 70px;
         transform: translate(-50%);
         left: 50%;
         font-size: 1.6em;
       }
       .items {
-        position: relative;
+        position: absolute;
+        transform: translate(-50%);
+        width: 90%;
+        height: 600px;
+        left: 50%;
         display: block;
-        left: 10%;
+        clip-path: circle(50% at 50% 0);
         pointer-events: none;
         opacity: 0;
         background: white;
@@ -253,6 +259,9 @@ nav {
   }
 }
 @media screen and (max-width: 480px) {
-
+  .items {
+    width: 70% !important;
+    padding: 5px;
+  }
 }
 </style>

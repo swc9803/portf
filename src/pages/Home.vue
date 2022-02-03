@@ -12,7 +12,7 @@
       <!-- 최성우 누르면 소개페이지로 -->
       <p ref="mainText">끝없이 배움을 추구하는 개발자
         <span v-for="star in stars" :key="star.id" class="twinkle" :ref="twinkle">★</span>
-        <b @click="moveToAboutme"> 최성우 </b>입니다
+        <b @click="moveToAboutme">최성우</b>입니다
       </p>
     </div>
   </div>
@@ -114,7 +114,7 @@ export default {
     const setRandomPosition = () => {
       for (var i = 0; i < 4; i++) {
         gsap.set(array.value[i], {
-          xPercent: gsap.utils.random(0, 850),
+          xPercent: gsap.utils.random(0, 830),
           yPercent: gsap.utils.random(0, 250)
         })
       }
@@ -184,7 +184,7 @@ export default {
     p {
       display: inline-block;
       pointer-events: auto;
-      margin: 0 10% 0 10%;
+      margin: 0 4% 0 4%;
       font-size: $titleFontSize;
       font-weight: 400;
       color: white;
@@ -200,6 +200,7 @@ export default {
       }
       .twinkle {
         position: absolute;
+        overflow: hidden;
         pointer-events: none;
         font-size: 0.3em;
       }
@@ -274,6 +275,12 @@ export default {
   }
 }
 @media screen and (max-width: 480px) {
-
+  .main {
+    .wrapper {
+      p {
+        font-size: 1.6em;
+      }
+    }
+  }
 }
 </style>
