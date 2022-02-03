@@ -184,7 +184,7 @@ export default {
     p {
       display: inline-block;
       pointer-events: auto;
-      margin: 0;
+      margin: 0 10% 0 10%;
       font-size: $titleFontSize;
       font-weight: 400;
       color: white;

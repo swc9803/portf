@@ -2,7 +2,7 @@
   <nav ref="navbar">
     <div class="menu">
       <p class="title" @click="moveToTop">SUNGWOO</p>
-      <div>
+      <div class="items" ref="items">
       <!-- 호버시 위로 넘어가는 flip? 이벤트 -->
         <p @click="moveToAboutme">About me</p>
         <p @click="moveToSkills">Skills</p>
@@ -10,6 +10,12 @@
         <p @click="moveToContact">Contact</p>
       </div>
     </div>
+      <svg class="toggle" @click="toggle(), toggledata = !toggledata"
+        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 30">
+        <path class="toggle1" fill="#746a55" d="M0 22.8h30V30H0z"/>
+        <path class="toggle2" fill="#746a55" d="M0 11.4h30v7.2H0z"/>
+        <path class="toggle3" fill="#746a55" d="M0 0h30v7.2H0z"/>
+      </svg>
     <div class="progress" ref="progressbar" />
   </nav>
 </template>
@@ -40,6 +46,61 @@ export default {
       emit('moveToContact')
     }
 
+    const toggledata = ref(false)
+    const items = ref()
+    const toggle = () => {
+      if (toggledata.value === false) {
+        gsap.to('.toggle1', {
+          yPercent: -158,
+          ease: 'none',
+          duration: 0.1
+        })
+        gsap.to('.toggle3', {
+          yPercent: 158,
+          ease: 'none',
+          duration: 0.1
+        }, '<')
+        gsap.to('.toggle2', {
+          opacity: 0,
+          ease: 'none',
+          duration: 0.1
+        }, '<')
+        gsap.to('.toggle3', {
+          rotate: -45,
+          transformOrigin: 'center center',
+          ease: 'none',
+          duration: 0.1
+        }, '>')
+        gsap.to('.toggle1', {
+          rotate: 45,
+          transformOrigin: 'center center',
+          ease: 'none',
+          duration: 0.1
+        }, '<')
+        items.value.style.opacity = '1'
+        items.value.style.pointerEvents = 'auto'
+      } else if (toggledata.value === true) {
+        gsap.to('.toggle1, .toggle3', {
+          rotate: 0,
+          transformOrigin: 'center center',
+          ease: 'none',
+          duration: 0.1
+        })
+        gsap.to('.toggle2', {
+          opacity: 1,
+          ease: 'none',
+          duration: 0.1
+        }, '>')
+        gsap.to('.toggle3, .toggle1', {
+          yPercent: 0,
+          ease: 'none',
+          duration: 0.1
+        }, '<')
+        items.value.style.opacity = '0'
+        items.value.style.pointerEvents = 'none'
+      }
+    }
+
     // progressbar
     const progressbar = ref()
     const changeProgress = () => {
@@ -51,7 +112,7 @@ export default {
     }
 
     onMounted(() => {
-      // 내리면 navBar 글 색이 변하는 애니메이션
+      // 내리면 navBar 색이 변하는 애니메이션
       const navBarColor = gsap.from(navbar.value, {
         background: '#ffffff',
         duration: 0.2,
@@ -64,12 +125,19 @@ export default {
         ease: 'none'
       }).progress(1)
       menuColor.pause()
+      const toggleColor = gsap.to('.toggle1, .toggle2, .toggle3', {
+        fill: '#ffffff',
+        duration: 0.1,
+        ease: 'none'
+      }).progress(1)
+      toggleColor.pause()
       ScrollTrigger.create({
         start: '10%',
         end: 'bottom',
         onUpdate: (self) => {
           self.direction === -1 ? navBarColor.play() : navBarColor.reverse()
           self.direction === -1 ? menuColor.play() : menuColor.reverse()
+          self.direction === -1 ? toggleColor.play() : toggleColor.reverse()
         }
       })
     })
@@ -80,6 +148,9 @@ export default {
       moveToSkills,
       moveToMyworks,
       moveToContact,
+      toggle,
+      toggledata,
+      items,
       progressbar,
       changeProgress
     }
@@ -117,12 +188,22 @@ nav {
     .title {
       font-size: 1.6em;
     }
-    div {
+    .items {
+      pointer-events: auto ;
+      opacity: 1 ;
       display: flex;
       p {
         margin-left: 24px;
       }
     }
+  }
+  .toggle {
+    display: none;
+    cursor: pointer;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    right: 40px;
   }
   .progress {
     position: absolute;
@@ -146,9 +227,25 @@ nav {
         left: 50%;
         font-size: 1.6em;
       }
-      div {
-        visibility: hidden;
+      .items {
+        position: relative;
+        display: block;
+        left: 10%;
+        pointer-events: none;
+        opacity: 0;
+        background: white;
+        margin: 70px 0 0 0;
+        p {
+          color: rgb(116, 106, 85) !important;
+          line-height: 30px;
+          padding: 15px;
+          margin: 0;
+        }
       }
+    }
+    .toggle {
+      margin-top: 8px;
+      display: block;
     }
   }
   .progress {
