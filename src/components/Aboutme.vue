@@ -50,9 +50,9 @@ export default {
     }
 
     onMounted(() => {
-      gsap.to(about.value, {
-        color: '#ffffff', duration: 3, ease: 'ease-out', yoyo: true, repeat: -1
-      })
+      gsap.fromTo(about.value,
+        { color: '#ffffaf' },
+        { color: '#ffffff', duration: 3, yoyo: true, repeat: -1 })
     })
     return {
       about, snowAni1, snowAni2

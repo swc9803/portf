@@ -11,6 +11,9 @@
     <img src="@/assets/logos/gsapLogo.png" alt="gsap">
     <img src="@/assets/logos/figmaLogo.png" alt="figma">
   </div>
+  <div class="des">
+    dd
+  </div>
 </template>
 
 <script>
@@ -20,13 +23,18 @@ import gsap from 'gsap'
 export default {
   setup () {
     const skills = ref()
+    const htmlData = ref(false); const cssData = ref(false)
+    const jsData = ref(false); const vueData = ref(false)
+    const firebaseData = ref(false); const scssData = ref(false)
+    const gsapData = ref(false); const figmaData = ref(false)
+
     onMounted(() => {
-      gsap.to(skills.value, {
-        color: '#ffffff', duration: 3, ease: 'ease-out', yoyo: true, repeat: -1
-      })
+      gsap.fromTo(skills.value,
+        { color: '#ffffaf' },
+        { color: '#ffffff', duration: 3, yoyo: true, repeat: -1 })
     })
     return {
-      skills
+      skills, htmlData, cssData, jsData, vueData, firebaseData, scssData, gsapData, figmaData
     }
   }
 }
@@ -39,10 +47,11 @@ h2 {
   text-align: center;
 }
 .logos {
+  position: relative;
   text-align: center;
   overflow: hidden;
   img {
-    width: 170px;
+    width: 10%;
     margin: 20px;
     cursor: pointer;
     border-radius: 70%;
@@ -55,17 +64,28 @@ h2 {
     }
   }
 }
-@media screen and (max-width: 800px) {
+.des {
+  position: relative;
+  transform: translate(-50%);
+  left: 50%;
+  width: 80%;
+  height: 500px;
+  text-align: center;
+  margin-top: 50px;
+  background: rgb(87, 87, 87);
+}
+
+@media screen and (max-width: 1500px) {
   .logos {
     img {
-      width: 100px;
+      width: 15%;
     }
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   .logos {
     img {
-      width: 70px;
+      width: 20%;
     }
   }
 }

@@ -19,13 +19,13 @@
   <div class="container aboutme" ref="aboutme">
     <Aboutme />
   </div>
-  <div class="container skills" ref="skills">
+  <div class="skills" ref="skills">
     <Skills />
   </div>
-  <div class="container myworks" ref="myworks">
+  <div class="myworks" ref="myworks">
     작업물
   </div>
-  <div class="container contact" ref="contact">
+  <div class="contact" ref="contact">
     Contact
   </div>
 </template>
@@ -168,6 +168,12 @@ export default {
       }
     }
   }
+}
+// 임시 스타일
+.skills,
+.myworks,
+.contact {
+  position: relative;
 }
 
 @media screen and (max-width: 768px) {

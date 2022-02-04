@@ -252,9 +252,9 @@ nav {
       }
       .items {
         position: absolute;
-        transform: translate(-50%);
         width: 90%;
         height: 600px;
+        transform: translate(-50%);
         left: 50%;
         display: block;
         clip-path: circle(50% at 50% 0);
