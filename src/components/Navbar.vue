@@ -3,11 +3,10 @@
     <div class="menu">
       <p class="title" @click="moveToTop">SUNGWOO</p>
       <div class="items" ref="items">
-      <!-- 호버시 위로 넘어가는 flip? 이벤트 -->
-        <p @click="moveToAboutme">About me</p>
-        <p @click="moveToSkills">Skills</p>
-        <p @click="moveToMyworks">My works</p>
-        <p @click="moveToContact">Contact</p>
+        <p @click="moveToAboutme" class="About me">About me</p>
+        <p @click="moveToSkills" class="Skills">Skills</p>
+        <p @click="moveToMyworks" class="My works">My works</p>
+        <p @click="moveToContact" class="Contact">Contact</p>
       </div>
     </div>
       <svg class="toggle" @click="toggle(), toggledata = !toggledata"
@@ -194,6 +193,7 @@ nav {
       transition: 0.3s;
       p {
         margin-left: 24px;
+        transition: 0.4s;
       }
     }
   }
@@ -213,7 +213,27 @@ nav {
     mix-blend-mode: difference;
     will-change: transform;
     background: rgb(0, 0, 0);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9) inset;
+  }
+}
+@media screen and (min-width: 800px) {
+ .items {
+    p {
+      &::before {
+        position: absolute;
+        content: attr(class);
+        background: rgb(100, 100, 100);
+        clip-path: inset(0 100% 0 0);
+        height: 3px;
+        top: 67px;
+        z-index: -1;
+        opacity: 1;
+        transition: 0.4s;
+      }
+      &:hover::before {
+        clip-path: inset(0 0 0 0);
+      }
+    }
   }
 }
 @media screen and (max-width: 800px) {
