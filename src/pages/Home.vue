@@ -17,10 +17,9 @@
     </div>
   </div>
   <div class="container aboutme" ref="aboutme">
-    <Snow class="snow" />
+    <SnowBackground class="snow" />
     <div class="wrapper">
-      <!-- aboutme 글자 흰, 노랑 반짝 색 $titleColor -->
-      <p class="about">About me</p>
+      <p class="about" ref="about">About me</p>
       <div class="flex">
         <div class="picture" @mouseover="snowAni1">
           <svg class="piledsnow1" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 636 85">
@@ -38,7 +37,7 @@
     </div>
   </div>
   <div class="container skills" ref="skills">
-    스킬
+    <Skills />
   </div>
   <div class="container myworks" ref="myworks">
     작업물
@@ -51,7 +50,8 @@
 <script>
 import Navbar from '@/components/Navbar'
 import SpaceBackground from '@/components/home/SpaceBackground'
-import Snow from '@/components/home/SnowBackground'
+import SnowBackground from '@/components/home/SnowBackground'
+import Skills from '@/components/Skills'
 import gsap from 'gsap'
 import { onMounted, ref } from 'vue'
 
@@ -63,6 +63,7 @@ export default {
     const myworks = ref()
     const contact = ref()
     const mainText = ref()
+    const about = ref()
     const array = ref([])
     const twinkle = (el) => array.value.push(el)
     const star = ref()
@@ -137,6 +138,9 @@ export default {
           }
         })
       }
+      gsap.to(about.value, {
+        color: '#ffffff', duration: 3, ease: 'ease-out', repeat: -1
+      })
     })
     return {
       aboutme,
@@ -148,6 +152,7 @@ export default {
       moveToMyworks,
       moveToContact,
       mainText,
+      about,
       array,
       twinkle,
       star,
@@ -160,7 +165,7 @@ export default {
     }
   },
   components: {
-    SpaceBackground, Snow, Navbar
+    Navbar, SpaceBackground, SnowBackground, Skills
   }
 }
 </script>
@@ -180,7 +185,7 @@ export default {
     top: 50%;
     transform: translate(0, -50%);
     text-align: center;
-    font-family: 'KOTRALEAP';
+    font-family: $titleFont;
     p {
       display: inline-block;
       pointer-events: auto;
@@ -216,6 +221,7 @@ export default {
   .wrapper {
     position: relative;
     .about {
+      font-family: $titleFont;
       padding: 5% 0 5%;
       text-align: center;
       font-size: $titleFontSize;
