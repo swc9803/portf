@@ -1,5 +1,5 @@
 <template>
-  <p>Skills</p>
+  <p class="title">Skills</p>
 </template>
 
 <script>
@@ -9,7 +9,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-p {
-  text-align: center;
-}
+@import '@/style/Mainstyle';
+
 </style>

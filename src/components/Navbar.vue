@@ -1,7 +1,7 @@
 <template>
   <nav ref="navbar">
     <div class="menu">
-      <p class="title" @click="moveToTop">SUNGWOO</p>
+      <p class="symbol" @click="moveToTop">SUNGWOO</p>
       <div class="items" ref="items">
         <p @click="moveToAboutme" class="About me">About me</p>
         <p @click="moveToSkills" class="Skills">Skills</p>
@@ -183,7 +183,7 @@ nav {
       cursor: pointer;
       margin: 0;
     }
-    .title {
+    .symbol {
       font-size: 1.6em;
     }
     .items {
@@ -243,7 +243,7 @@ nav {
     color: rgb(116, 106, 85);
     .menu {
       width: 100%;
-      .title {
+      .symbol {
         position: relative;
         height: 70px;
         transform: translate(-50%);
