@@ -188,9 +188,10 @@ nav {
       font-size: 1.6em;
     }
     .items {
-      pointer-events: auto ;
-      opacity: 1 ;
+      pointer-events: auto;
+      opacity: 1;
       display: flex;
+      transition: 0.3s;
       p {
         margin-left: 24px;
       }

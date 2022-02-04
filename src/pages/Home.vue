@@ -10,7 +10,7 @@
     <SpaceBackground class="space" />
     <div class="wrapper">
       <!-- 최성우 누르면 소개페이지로 -->
-      <p ref="mainText">끝없이 배움을 추구하는 개발자
+      <p ref="mainText">끝없이 배움을 추구하는 웹퍼블리셔
         <span v-for="star in stars" :key="star.id" class="twinkle" :ref="twinkle">★</span>
         <b @click="moveToAboutme">최성우</b>입니다
       </p>
