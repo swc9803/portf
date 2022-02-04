@@ -21,8 +21,8 @@
 
 <script>
 import SnowBackground from '@/components/home/SnowBackground'
-import gsap from 'gsap'
 import { onMounted, ref } from 'vue'
+import gsap from 'gsap'
 
 export default {
   setup () {
@@ -51,7 +51,7 @@ export default {
 
     onMounted(() => {
       gsap.to(about.value, {
-        color: '#ffffff', duration: 3, ease: 'ease-out', repeat: -1
+        color: '#ffffff', duration: 3, ease: 'ease-out', yoyo: true, repeat: -1
       })
     })
     return {
@@ -72,14 +72,6 @@ export default {
 }
 .wrapper {
   position: relative;
-  .about {
-    font-family: $titleFont;
-    padding: 5% 0 5%;
-    text-align: center;
-    font-size: $titleFontSize;
-    color: $titleColor;
-    text-shadow: 0 0 10px rgb(0, 0, 0);
-  }
   .flex {
     display: flex;
     flex-wrap: wrap;
@@ -89,7 +81,7 @@ export default {
       margin: 6% 5% 0 5%;
       background: rgba(255, 255, 255, 0.7);
       transition: 1s;
-      box-shadow: 4px 4px 5px rgb(88, 88, 88) ;
+      box-shadow: 4px 4px 5px rgb(88, 88, 88);
       &.picture:hover {
        transform: perspective(600px) rotateY(8deg);
       }

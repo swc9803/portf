@@ -10,12 +10,13 @@ $titleFontSize: 1.8em;
 }
 
 .title {
-  font-family: $titleFont;
-  padding: 5% 0 5%;
-  text-align: center;
-  font-size: $titleFontSize;
   color: $titleColor;
-  text-shadow: 0 0 5px rgb(0, 0, 0);
+  font-size: $titleFontSize;
+  font-family: $titleFont;
+  letter-spacing: 2px;
+  padding: 2% 0 2%;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
 }
 
 .background {
