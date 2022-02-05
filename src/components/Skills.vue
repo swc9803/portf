@@ -48,7 +48,7 @@
         </div>
         <div class="frame">
           <img src="@/assets/examples/firebaseEx.png" @click="focusFirebase" alt="firebaseEx">
-          이미지를 클릭하시면 확대됩니다.
+          <span>이미지를 클릭하시면 확대됩니다.</span>
         </div>
       </section>
     </div>
@@ -395,8 +395,15 @@ h2 {
     }
     section {
       display: block;
-      p {
-        padding-top: 20px;
+      div {
+        p {
+          padding-top: 20px;
+        }
+      }
+      .frame {
+        span {
+          display: none;
+        }
       }
     }
   }
