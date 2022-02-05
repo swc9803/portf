@@ -1,16 +1,12 @@
 <template>
   <router-view />
-  <Footer />
 </template>
 
 <script>
-import Footer from '@/components/Footer'
 
 export default {
-  components: {
-    Footer
-  },
   setup () {
+
   }
 }
 </script>

@@ -11,27 +11,54 @@
     <img src="@/assets/logos/firebaseLogo.png" @click="onFirebase" ref="firebaseIcon" alt="firebase">
   </div>
   <div class="des">
-    <div v-show="html">
+    <div v-show="html" class="html">
       html
     </div>
-    <div v-show="js">
+    <div v-show="js" class="js">
       js
     </div>
-    <div v-show="vue">
+    <div v-show="vue" class="vue">
       vue
     </div>
-    <div v-show="scss">
+    <div v-show="scss" class="scss">
       scss
     </div>
-    <div v-show="gsapp">
+    <div v-show="gsapp" class="gsap">
       gsap
     </div>
-    <div v-show="figma">
-      figma
+    <div v-show="figma" class="figma">
+      <img class="desIcon" src="@/assets/logos/figmaLogo.png">
+      <section>
+        <div>
+          <p>Figma 툴을 사용해 간단한 일러스트를 제작할 수 있으며 웹 개발을 하기 전 제작에 도움을 줄 수 있는 견본을 만들 수 있습니다.</p>
+          <p>figma에 대해 기본 지식이 있어 디자이너와의 협업이 효율적으로 가능합니다.</p>
+        </div>
+        <div class="frame">
+          <img src="@/assets/examples/figmaEx.png" @click="focusFigma" alt="figmaEx">
+          이미지를 클릭하시면 확대됩니다.
+        </div>
+      </section>
     </div>
-    <div v-show="firebase">
-      firebase
+    <div v-show="firebase" class="firebase">
+      <img class="desIcon" src="@/assets/logos/firebaseLogo.png">
+      <section>
+        <div>
+          <p>구글의 NOSQL Firebase를 사용해 클라우드 데이터베이스와 유저를 관리할 수 있습니다.</p>
+          <p>Firebase 또는 Firestore, storage를 사용해 글, 이미지 저장 등의 간단한 백엔드를 다룰 수 있습니다.</p>
+        </div>
+        <div class="frame">
+          <img src="@/assets/examples/firebaseEx.png" @click="focusFirebase" alt="firebaseEx">
+          이미지를 클릭하시면 확대됩니다.
+        </div>
+      </section>
     </div>
+  </div>
+  <!-- 트렌지션 -->
+  <div class="focus" v-show="figmaEx" @click="blur">
+    <img src="@/assets/examples/figmaEx.png" alt="figmaEx">
+  </div>
+  <div class="focus" v-show="firebaseEx" @click="blur">
+    <img src="@/assets/examples/firebaseEx.png" alt="firebaseEx">
   </div>
 </template>
 
@@ -50,7 +77,7 @@ export default {
     const htmlIcon = ref(); const jsIcon = ref()
     const vueIcon = ref(); const scssIcon = ref()
     const gsapIcon = ref(); const figmaIcon = ref(); const firebaseIcon = ref()
-    const onHtml = (e) => {
+    const onHtml = () => {
       if (html.value === false) {
         js.value = vue.value = scss.value = gsapp.value = figma.value = firebase.value = false
         jsIcon.value.classList.remove('active')
@@ -163,6 +190,19 @@ export default {
       }
     }
 
+    const figmaEx = ref(false); const firebaseEx = ref(false)
+    const focusFigma = () => {
+      // 트렌지션 0.5초 주고 오류나면 if 설정
+      figmaEx.value = true
+    }
+    const focusFirebase = () => {
+      firebaseEx.value = true
+    }
+    const blur = () => {
+      firebaseEx.value = false
+      figmaEx.value = false
+    }
+
     onMounted(() => {
       gsap.fromTo(skills.value,
         { color: '#ffffaf' },
@@ -198,7 +238,12 @@ export default {
       onScss,
       onGsap,
       onFigma,
-      onFirebase
+      onFirebase,
+      figmaEx,
+      focusFigma,
+      firebaseEx,
+      focusFirebase,
+      blur
     }
   }
 }
@@ -236,19 +281,103 @@ h2 {
   width: 80%;
   margin-top: 50px;
   transition: 0.3s;
-  :nth-child(1) { background: #FF8888; }
-  :nth-child(2) { background: #E5FF7C; }
-  :nth-child(3) { background: #90FF95; }
-  :nth-child(4) { background: #FFBEF5; }
-  :nth-child(5) { background: #CDFFBB; }
-  :nth-child(6) { background: #C4C4C4; }
-  :nth-child(7) { background: #A5E9FF; }
+  .html { background: #ffaeae; }
+  .js { background: #efffad; }
+  .vue { background: #b7ffbb; }
+  .scss { background: #ffcef8; }
+  .gsap { background: #dcffcf; }
+  .figma { background: #dfdfdf; }
+  .firebase { background: #d5f4ff; }
+  .desIcon {
+    position: absolute;
+    top: 6px;
+    left: 20%;
+    width: 120px;
+  }
+  section {
+    margin: 0 10px 0 10px;
+    display: flex;
+    div {
+      flex: 1 1 45%;
+      margin: 120px 0 0 10px;
+      word-break: keep-all;
+      p:nth-child(1) {
+        font-size: 1.3em;
+        font-weight: 600;
+      }
+      p:nth-child(2) {
+        margin-top: 70px;
+        font-size: 1.2em;
+      }
+    }
+    .frame {
+      flex: 1 1 50%;
+      margin: 10px 0 5px 0;
+      text-align: center;
+      overflow: hidden;
+      cursor: pointer;
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
-
+.focus {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: calc(100% + 1px);
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+  img {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: 80%;
+  }
+}
 @media screen and (max-width: 1500px) {
   .logos {
     img {
       width: 15%;
+    }
+  }
+  .des {
+    .desIcon {
+      width: 100px;
+    }
+    section {
+      div {
+        p:nth-child(1) {
+          font-size: 1.1em;
+        }
+        p:nth-child(2) {
+          margin-top: 40px;
+          font-size: 1em;
+        }
+      }
+    }
+  }
+  .focus {
+    img {
+      width: 90%;
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .des {
+    section {
+      div {
+        margin-top: 100px;
+        p:nth-child(2) {
+          margin-top: 20px;
+        }
+      }
     }
   }
 }
@@ -261,6 +390,15 @@ h2 {
   .des {
     width: 100%;
     margin-top: 20px;
+    .desIcon {
+      display: none;
+    }
+    section {
+      display: block;
+      p {
+        padding-top: 20px;
+      }
+    }
   }
 }
 @media screen and (max-width: 480px) {
