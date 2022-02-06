@@ -2,29 +2,65 @@
   <p class="title" ref="skills">Skills</p>
   <h2>아이콘을 클릭해보세요 ▼</h2>
   <div class="logos">
-    <img src="@/assets/logos/htmlLogo.png" @click="onHtml" ref="htmlIcon" alt="html">
-    <img src="@/assets/logos/jsLogo.png" @click="onJs" ref="jsIcon" alt="js">
     <img src="@/assets/logos/vueLogo.png" @click="onVue" ref="vueIcon" alt="vue">
+    <img src="@/assets/logos/jsLogo.png" @click="onJs" ref="jsIcon" alt="js">
     <img src="@/assets/logos/scssLogo.png" @click="onScss" ref="scssIcon" alt="scss">
     <img src="@/assets/logos/gsapLogo.png" @click="onGsap" ref="gsapIcon" alt="gsap">
     <img src="@/assets/logos/figmaLogo.png" @click="onFigma" ref="figmaIcon" alt="figma">
     <img src="@/assets/logos/firebaseLogo.png" @click="onFirebase" ref="firebaseIcon" alt="firebase">
   </div>
   <div class="des">
-    <div v-show="html" class="html">
-      html
+    <div v-show="vue" class="vue">
+      <img class="desIcon" src="@/assets/logos/vueLogo.png">
+      <section>
+        <div>
+          <p>vue</p>
+          <p>vue</p>
+        </div>
+        <div class="frame">
+          <img src="@/assets/examples/scssEx.png" @click="focusVue" alt="vueEx">
+          이미지를 클릭하시면 확대됩니다.
+        </div>
+      </section>
     </div>
     <div v-show="js" class="js">
-      js
-    </div>
-    <div v-show="vue" class="vue">
-      vue
+      <img class="desIcon" src="@/assets/logos/jsLogo.png">
+      <section>
+        <div>
+          <p>js</p>
+          <p>js</p>
+        </div>
+        <div class="frame">
+          <img src="@/assets/examples/scssEx.png" @click="focusJs" alt="jsEx">
+          이미지를 클릭하시면 확대됩니다.
+        </div>
+      </section>
     </div>
     <div v-show="scss" class="scss">
-      scss
+      <img class="desIcon" src="@/assets/logos/scssLogo.png">
+      <section>
+        <div>
+          <p>CSS3를 사용해 반응형 레이아웃을 만들 수 있습니다.</p>
+          <p>Scss를 사용해 mixin, 변수를 만들어 유지 보수 관리를 수월하게 합니다. </p>
+        </div>
+        <div class="frame">
+          <img src="@/assets/examples/scssEx.png" @click="focusScss" alt="scssEx">
+          이미지를 클릭하시면 확대됩니다.
+        </div>
+      </section>
     </div>
     <div v-show="gsapp" class="gsap">
-      gsap
+      <img class="desIcon" src="@/assets/logos/gsapLogo.png">
+      <section>
+        <div>
+          <p>Gsap 라이브러리와 ScrollTrigger를 능숙하게 다룹니다.</p>
+          <p>Gsap를 사용해 Keyframe 보다 더 정교하고 섬세한 애니메이션을 만들 수 있습니다.</p>
+        </div>
+        <div class="frame">
+          <img src="@/assets/examples/gsapEx.png" @click="focusGsap" alt="gsapEx">
+          이미지를 클릭하시면 확대됩니다.
+        </div>
+      </section>
     </div>
     <div v-show="figma" class="figma">
       <img class="desIcon" src="@/assets/logos/figmaLogo.png">
@@ -34,7 +70,7 @@
           <p>figma에 대해 기본 지식이 있어 디자이너와의 협업이 효율적으로 가능합니다.</p>
         </div>
         <div class="frame">
-          <img src="@/assets/examples/figmaEx.png" @click="focusFigma" alt="figmaEx">
+          <img src="@/assets/examples/figmaEx1.png" @click="focusFigma" alt="figmaEx">
           이미지를 클릭하시면 확대됩니다.
         </div>
       </section>
@@ -47,19 +83,44 @@
           <p>Firebase 또는 Firestore, storage를 사용해 글, 이미지 저장 등의 간단한 백엔드를 다룰 수 있습니다.</p>
         </div>
         <div class="frame">
-          <img src="@/assets/examples/firebaseEx.png" @click="focusFirebase" alt="firebaseEx">
+          <img src="@/assets/examples/firebaseEx1.png" @click="focusFirebase" alt="firebaseEx">
           <span>이미지를 클릭하시면 확대됩니다.</span>
         </div>
       </section>
     </div>
   </div>
-  <!-- 트렌지션 -->
-  <div class="focus" v-show="figmaEx" @click="blur">
-    <img src="@/assets/examples/figmaEx.png" alt="figmaEx">
-  </div>
-  <div class="focus" v-show="firebaseEx" @click="blur">
-    <img src="@/assets/examples/firebaseEx.png" alt="firebaseEx">
-  </div>
+  <transition name="imgFade">
+    <div class="focus" v-show="vueEx" @click="blur">
+      <img src="@/assets/examples/scssEx.png" class="img1" alt="vueEx">
+    </div>
+  </transition>
+  <transition name="imgFade">
+    <div class="focus" v-show="jsEx" @click="blur">
+      <img src="@/assets/examples/scssEx.png" class="img1" alt="jsEx">
+    </div>
+  </transition>
+  <transition name="imgFade">
+    <div class="focus" v-show="scssEx" @click="blur">
+      <img src="@/assets/examples/scssEx.png" class="img1" alt="scssEx">
+    </div>
+  </transition>
+  <transition name="imgFade">
+    <div class="focus" v-show="gsapEx" @click="blur">
+      <img src="@/assets/examples/gsapEx.png" class="img1" alt="gsapEx">
+    </div>
+  </transition>
+  <transition name="imgFade">
+    <div class="focus" v-show="figmaEx" @click="blur">
+      <img src="@/assets/examples/figmaEx1.png" class="img2" alt="figmaEx1">
+      <img src="@/assets/examples/figmaEx2.png" class="img2" alt="figmaEx2">
+    </div>
+  </transition>
+  <transition name="imgFade">
+    <div class="focus" v-show="firebaseEx" @click="blur">
+      <img src="@/assets/examples/firebaseEx1.png" class="img2" alt="firebaseEx1">
+      <img src="@/assets/examples/firebaseEx2.png" class="img2" alt="firebaseEx2">
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -71,48 +132,15 @@ gsap.registerPlugin(ScrollTrigger)
 export default {
   setup () {
     const skills = ref()
-    const html = ref(false); const js = ref(false)
-    const vue = ref(false); const scss = ref(false)
-    const gsapp = ref(false); const figma = ref(false); const firebase = ref(false)
-    const htmlIcon = ref(); const jsIcon = ref()
-    const vueIcon = ref(); const scssIcon = ref()
-    const gsapIcon = ref(); const figmaIcon = ref(); const firebaseIcon = ref()
-    const onHtml = () => {
-      if (html.value === false) {
-        js.value = vue.value = scss.value = gsapp.value = figma.value = firebase.value = false
-        jsIcon.value.classList.remove('active')
-        vueIcon.value.classList.remove('active')
-        scssIcon.value.classList.remove('active')
-        gsapIcon.value.classList.remove('active')
-        figmaIcon.value.classList.remove('active')
-        firebaseIcon.value.classList.remove('active')
-        htmlIcon.value.classList.toggle('active')
-        html.value = true
-      } else {
-        htmlIcon.value.classList.toggle('active')
-        html.value = false
-      }
-    }
-    const onJs = () => {
-      if (js.value === false) {
-        html.value = vue.value = scss.value = gsapp.value = figma.value = firebase.value = false
-        htmlIcon.value.classList.remove('active')
-        vueIcon.value.classList.remove('active')
-        scssIcon.value.classList.remove('active')
-        gsapIcon.value.classList.remove('active')
-        figmaIcon.value.classList.remove('active')
-        firebaseIcon.value.classList.remove('active')
-        jsIcon.value.classList.toggle('active')
-        js.value = true
-      } else {
-        jsIcon.value.classList.toggle('active')
-        js.value = false
-      }
-    }
+    const vue = ref(false); const js = ref(false)
+    const scss = ref(false); const gsapp = ref(false)
+    const figma = ref(false); const firebase = ref(false)
+    const vueIcon = ref(); const jsIcon = ref()
+    const scssIcon = ref(); const gsapIcon = ref()
+    const figmaIcon = ref(); const firebaseIcon = ref()
     const onVue = () => {
       if (vue.value === false) {
-        html.value = js.value = scss.value = gsapp.value = figma.value = firebase.value = false
-        htmlIcon.value.classList.remove('active')
+        js.value = scss.value = gsapp.value = figma.value = firebase.value = false
         jsIcon.value.classList.remove('active')
         scssIcon.value.classList.remove('active')
         gsapIcon.value.classList.remove('active')
@@ -125,10 +153,24 @@ export default {
         vue.value = false
       }
     }
+    const onJs = () => {
+      if (js.value === false) {
+        vue.value = scss.value = gsapp.value = figma.value = firebase.value = false
+        vueIcon.value.classList.remove('active')
+        scssIcon.value.classList.remove('active')
+        gsapIcon.value.classList.remove('active')
+        figmaIcon.value.classList.remove('active')
+        firebaseIcon.value.classList.remove('active')
+        jsIcon.value.classList.toggle('active')
+        js.value = true
+      } else {
+        jsIcon.value.classList.toggle('active')
+        js.value = false
+      }
+    }
     const onScss = () => {
       if (scss.value === false) {
-        html.value = js.value = vue.value = gsapp.value = figma.value = firebase.value = false
-        htmlIcon.value.classList.remove('active')
+        js.value = vue.value = gsapp.value = figma.value = firebase.value = false
         jsIcon.value.classList.remove('active')
         vueIcon.value.classList.remove('active')
         gsapIcon.value.classList.remove('active')
@@ -143,8 +185,7 @@ export default {
     }
     const onGsap = () => {
       if (gsapp.value === false) {
-        html.value = js.value = scss.value = vue.value = figma.value = firebase.value = false
-        htmlIcon.value.classList.remove('active')
+        js.value = scss.value = vue.value = figma.value = firebase.value = false
         jsIcon.value.classList.remove('active')
         vueIcon.value.classList.remove('active')
         scssIcon.value.classList.remove('active')
@@ -159,8 +200,7 @@ export default {
     }
     const onFigma = () => {
       if (figma.value === false) {
-        html.value = js.value = scss.value = vue.value = gsapp.value = firebase.value = false
-        htmlIcon.value.classList.remove('active')
+        js.value = scss.value = vue.value = gsapp.value = firebase.value = false
         jsIcon.value.classList.remove('active')
         vueIcon.value.classList.remove('active')
         scssIcon.value.classList.remove('active')
@@ -175,8 +215,7 @@ export default {
     }
     const onFirebase = () => {
       if (firebase.value === false) {
-        html.value = js.value = scss.value = vue.value = gsapp.value = figma.value = false
-        htmlIcon.value.classList.remove('active')
+        js.value = scss.value = vue.value = gsapp.value = figma.value = false
         jsIcon.value.classList.remove('active')
         vueIcon.value.classList.remove('active')
         scssIcon.value.classList.remove('active')
@@ -190,15 +229,32 @@ export default {
       }
     }
 
+    const vueEx = ref(false); const jsEx = ref(false)
+    const scssEx = ref(false); const gsapEx = ref(false)
     const figmaEx = ref(false); const firebaseEx = ref(false)
+    const focusVue = () => {
+      vueEx.value = true
+    }
+    const focusJs = () => {
+      jsEx.value = true
+    }
+    const focusScss = () => {
+      scssEx.value = true
+    }
+    const focusGsap = () => {
+      gsapEx.value = true
+    }
     const focusFigma = () => {
-      // 트렌지션 0.5초 주고 오류나면 if 설정
       figmaEx.value = true
     }
     const focusFirebase = () => {
       firebaseEx.value = true
     }
     const blur = () => {
+      vueEx.value = false
+      jsEx.value = false
+      scssEx.value = false
+      gsapEx.value = false
       firebaseEx.value = false
       figmaEx.value = false
     }
@@ -218,27 +274,32 @@ export default {
     })
     return {
       skills,
-      html,
-      js,
       vue,
+      js,
       scss,
       gsapp,
       figma,
       firebase,
-      htmlIcon,
-      jsIcon,
       vueIcon,
+      jsIcon,
       scssIcon,
       gsapIcon,
       figmaIcon,
       firebaseIcon,
-      onHtml,
-      onJs,
       onVue,
+      onJs,
       onScss,
       onGsap,
       onFigma,
       onFirebase,
+      vueEx,
+      focusVue,
+      jsEx,
+      focusJs,
+      scssEx,
+      focusScss,
+      gsapEx,
+      focusGsap,
       figmaEx,
       focusFigma,
       firebaseEx,
@@ -281,11 +342,10 @@ h2 {
   width: 80%;
   margin-top: 50px;
   transition: 0.3s;
-  .html { background: #ffaeae; }
+  .vue { background: #a9ffad; }
   .js { background: #efffad; }
-  .vue { background: #b7ffbb; }
   .scss { background: #ffcef8; }
-  .gsap { background: #dcffcf; }
+  .gsap { background: #e5ffdb; }
   .figma { background: #dfdfdf; }
   .firebase { background: #d5f4ff; }
   .desIcon {
@@ -299,7 +359,7 @@ h2 {
     display: flex;
     div {
       flex: 1 1 45%;
-      margin: 120px 0 0 10px;
+      margin: 160px 0 0 10px;
       word-break: keep-all;
       p:nth-child(1) {
         font-size: 1.3em;
@@ -317,6 +377,7 @@ h2 {
       overflow: hidden;
       cursor: pointer;
       img {
+        border-radius: 2%;
         width: 100%;
       }
     }
@@ -333,12 +394,22 @@ h2 {
   z-index: 10;
   overflow: hidden;
   cursor: pointer;
-  img {
-    position: absolute;
-    transform: translate(-50%, -50%);
+  text-align: center;
+  @mixin img-style {
+    position: relative;
+    transform: translate(0, -50%);
     top: 50%;
-    left: 50%;
-    width: 80%;
+  }
+  .img1 {
+    @include img-style;
+    width: 85%;
+  }
+  .img2 {
+    @include img-style;
+    width: 45%;
+    &:nth-child(1) {
+      margin-right: 20px;
+    }
   }
 }
 @media screen and (max-width: 1500px) {
@@ -361,11 +432,6 @@ h2 {
           font-size: 1em;
         }
       }
-    }
-  }
-  .focus {
-    img {
-      width: 90%;
     }
   }
 }
@@ -404,6 +470,26 @@ h2 {
         span {
           display: none;
         }
+      }
+    }
+  }
+  .focus {
+    display: flex;
+    flex-direction: column;
+    .img1 {
+      width: 90%;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+    }
+    .img2 {
+      width: 90%;
+      transform: translate(-50%, -50%);
+      top: 30%;
+      left: 50%;
+      &:nth-child(1) {
+        margin-right: 0;
+        margin-bottom: 20px;
       }
     }
   }

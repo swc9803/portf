@@ -31,3 +31,12 @@ $titleFontSize: 1.8em;
   width: 100%;
   height: 100%;
 }
+
+.imgFade-enter-from,
+.imgFade-leave-to {
+  opacity: 0;
+}
+.imgFade-enter-active,
+.imgFade-leave-active {
+  transition: .3s
+}
