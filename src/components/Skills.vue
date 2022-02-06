@@ -14,11 +14,11 @@
       <img class="desIcon" src="@/assets/logos/vueLogo.png">
       <section>
         <div>
-          <p>vue</p>
-          <p>vue</p>
+          <p>Vue를 사용해 컴포넌트화와 라우팅, 전역 상태 관리 등을 할 수 있으며, vuex, router 등의 라이브러리를 사용할 수 있습니다.</p>
+          <p>가상 돔을 사용하는 Vue에 다중 루트 노드와 컴포지션 api가 추가된 vue3를 사용함으로써 보다 효율적인 개발을 할 수 있습니다.</p>
         </div>
         <div class="frame">
-          <img src="@/assets/examples/scssEx.png" @click="focusVue" alt="vueEx">
+          <img src="@/assets/examples/vueEx1.png" @click="focusVue" alt="vueEx">
           이미지를 클릭하시면 확대됩니다.
         </div>
       </section>
@@ -27,11 +27,11 @@
       <img class="desIcon" src="@/assets/logos/jsLogo.png">
       <section>
         <div>
-          <p>js</p>
-          <p>js</p>
+          <p>Vanilla javascript와 firebase와 같은 백엔드를 다룰 수 있습니다.</p>
+          <p>돔을 직접 조작하는 Jquery를 사용하지 않아 브라우저 성능을 높이는 것이 가능합니다.</p>
         </div>
         <div class="frame">
-          <img src="@/assets/examples/scssEx.png" @click="focusJs" alt="jsEx">
+          <img src="@/assets/examples/jsEx.png" @click="focusJs" alt="jsEx">
           이미지를 클릭하시면 확대됩니다.
         </div>
       </section>
@@ -40,7 +40,7 @@
       <img class="desIcon" src="@/assets/logos/scssLogo.png">
       <section>
         <div>
-          <p>CSS3를 사용해 반응형 레이아웃을 만들 수 있습니다.</p>
+          <p>CSS3와 scss로 반응형 웹을 만들 수 있습니다.</p>
           <p>Scss를 사용해 mixin, 변수를 만들어 유지 보수 관리를 수월하게 합니다. </p>
         </div>
         <div class="frame">
@@ -55,6 +55,7 @@
         <div>
           <p>Gsap 라이브러리와 ScrollTrigger를 능숙하게 다룹니다.</p>
           <p>Gsap를 사용해 Keyframe 보다 더 정교하고 섬세한 애니메이션을 만들 수 있습니다.</p>
+          <p @click="goToSample">View Sample</p>
         </div>
         <div class="frame">
           <img src="@/assets/examples/gsapEx.png" @click="focusGsap" alt="gsapEx">
@@ -67,7 +68,7 @@
       <section>
         <div>
           <p>Figma 툴을 사용해 간단한 일러스트를 제작할 수 있으며 웹 개발을 하기 전 제작에 도움을 줄 수 있는 견본을 만들 수 있습니다.</p>
-          <p>figma에 대해 기본 지식이 있어 디자이너와의 협업이 효율적으로 가능합니다.</p>
+          <p>figma에 대해 기본 지식이 있어 디자이너와의 효율적으로 협업이 가능합니다.</p>
         </div>
         <div class="frame">
           <img src="@/assets/examples/figmaEx1.png" @click="focusFigma" alt="figmaEx">
@@ -91,12 +92,13 @@
   </div>
   <transition name="imgFade">
     <div class="focus" v-show="vueEx" @click="blur">
-      <img src="@/assets/examples/scssEx.png" class="img1" alt="vueEx">
+      <img src="@/assets/examples/vueEx1.png" class="img2" alt="vueEx">
+      <img src="@/assets/examples/vueEx2.png" class="img2" alt="vueEx">
     </div>
   </transition>
   <transition name="imgFade">
     <div class="focus" v-show="jsEx" @click="blur">
-      <img src="@/assets/examples/scssEx.png" class="img1" alt="jsEx">
+      <img src="@/assets/examples/jsEx.png" class="img1" alt="jsEx">
     </div>
   </transition>
   <transition name="imgFade">
@@ -258,6 +260,9 @@ export default {
       firebaseEx.value = false
       figmaEx.value = false
     }
+    const goToSample = () => {
+      window.open('https://pofo-55041.firebaseapp.com/weather', 'gsapSample')
+    }
 
     onMounted(() => {
       gsap.fromTo(skills.value,
@@ -304,7 +309,8 @@ export default {
       focusFigma,
       firebaseEx,
       focusFirebase,
-      blur
+      blur,
+      goToSample
     }
   }
 }
@@ -342,12 +348,30 @@ h2 {
   width: 80%;
   margin-top: 50px;
   transition: 0.3s;
-  .vue { background: #a9ffad; }
-  .js { background: #efffad; }
-  .scss { background: #ffcef8; }
-  .gsap { background: #e5ffdb; }
-  .figma { background: #dfdfdf; }
-  .firebase { background: #d5f4ff; }
+  .vue {
+    background: #b4ffb8;
+    box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
+  }
+  .js {
+    background: #f1ffbb;
+    box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
+  }
+  .scss {
+    background: #ffcef8;
+    box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
+  }
+  .gsap {
+    background: #e5ffdb;
+    box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
+  }
+  .figma {
+    background: #dfdfdf;
+    box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
+  }
+  .firebase {
+    background: #d5f4ff;
+    box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
+  }
   .desIcon {
     position: absolute;
     top: 6px;
@@ -369,14 +393,21 @@ h2 {
         margin-top: 70px;
         font-size: 1.2em;
       }
+      p:nth-child(3) {
+        display: inline-block;
+        padding: 5px;
+        border: 1px solid blue;
+        cursor: pointer;
+        color: rgb(37, 37, 255);
+      }
     }
     .frame {
       flex: 1 1 50%;
       margin: 10px 0 5px 0;
       text-align: center;
       overflow: hidden;
-      cursor: pointer;
       img {
+        cursor: pointer;
         border-radius: 2%;
         width: 100%;
       }
@@ -406,9 +437,9 @@ h2 {
   }
   .img2 {
     @include img-style;
-    width: 45%;
+    width: 49%;
     &:nth-child(1) {
-      margin-right: 20px;
+      margin-right: 10px;
     }
   }
 }
@@ -477,7 +508,7 @@ h2 {
     display: flex;
     flex-direction: column;
     .img1 {
-      width: 90%;
+      width: 95%;
       transform: translate(-50%, -50%);
       top: 50%;
       left: 50%;
