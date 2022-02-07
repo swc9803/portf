@@ -55,7 +55,6 @@
         <div>
           <p>Gsap 라이브러리와 ScrollTrigger를 능숙하게 다룹니다.</p>
           <p>Gsap를 사용해 Keyframe 보다 더 정교하고 섬세한 애니메이션을 만들 수 있습니다.</p>
-          <p @click="goToSample">View Sample</p>
         </div>
         <div class="frame">
           <img src="@/assets/examples/gsapEx.png" @click="focusGsap" alt="gsapEx">
@@ -260,9 +259,6 @@ export default {
       firebaseEx.value = false
       figmaEx.value = false
     }
-    const goToSample = () => {
-      window.open('https://pofo-55041.firebaseapp.com/weather', 'gsapSample')
-    }
 
     onMounted(() => {
       gsap.fromTo(skills.value,
@@ -309,8 +305,7 @@ export default {
       focusFigma,
       firebaseEx,
       focusFirebase,
-      blur,
-      goToSample
+      blur
     }
   }
 }

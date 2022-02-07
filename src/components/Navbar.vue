@@ -167,7 +167,7 @@ nav {
   top: 0;
   left: 0;
   z-index: 3;
-  opacity: 0.8;
+  opacity: 0.9;
   line-height: 100px;
   .menu {
     position: relative;

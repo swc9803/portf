@@ -23,7 +23,7 @@
     <Skills />
   </div>
   <div class="myworks" ref="myworks">
-    작업물
+    <Myworks />
   </div>
   <div class="contact" ref="contact">
     Contact
@@ -35,6 +35,7 @@ import Navbar from '@/components/Navbar'
 import SpaceBackground from '@/components/home/SpaceBackground'
 import Aboutme from '@/components/Aboutme'
 import Skills from '@/components/Skills'
+import Myworks from '@/components/Myworks'
 import gsap from 'gsap'
 import { onMounted, ref } from 'vue'
 
@@ -122,7 +123,7 @@ export default {
     }
   },
   components: {
-    Navbar, SpaceBackground, Aboutme, Skills
+    Navbar, SpaceBackground, Aboutme, Skills, Myworks
   }
 }
 </script>
