@@ -10,14 +10,16 @@
         :pagination="{ clickable: true }"
         :modules="modules"
       >
-        <swiper-slide class="dd blue">Slide 1</swiper-slide>
-        <swiper-slide class="dd red">Slide 2</swiper-slide>
-        <swiper-slide class="dd yellow">Slide 3</swiper-slide>
-        <swiper-slide class="dd green">Slide 4</swiper-slide>
+        <swiper-slide><img src="@/assets/gsap/spring.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/gsap/summer.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/gsap/fall.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/gsap/winter.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/gsap/sea.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/gsap/process.png"></swiper-slide>
       </swiper>
       <div class="projectDes">
-        <div>가장 최근에 제작한 사이트입니다. 여러 사이트를 제작해보며 반응형 웹과 애니메이션이 부족하다고 느껴 본 사이트는 반응형 레이아웃과 애니메이션에 집중을 하며 제작을 하였습니다.</div>
-        <div>hi</div>
+        <div>가장 최근에 제작한 사이트입니다. 여러 사이트를 제작해 보며 반응형 웹과 애니메이션이 부족하다고 느껴 본 사이트는 반응형 레이아웃과 애니메이션에 중점을 두어 제작을 하였습니다.</div>
+        <div>개발을 하며 반응형 구현과 gsap 애니메이션에 한 발짝 더 다가간 것을 느꼈고, 제작을 하는 데에 익숙해져 시간을 많이 절약했다는 생각이 드는 프로젝트였습니다.</div>
         <div class="icons">
           <img src="@/assets/homeIcon.png" @click="goToEggSite">
           <img src="@/assets/githubIcon.png" @click="goToEggGit">
@@ -40,7 +42,7 @@ export default {
   },
   setup () {
     const goToEggSite = () => {
-      open('https://segg-1.firebaseapp.com/')
+      open('https://segg-1.firebaseapp.com')
     }
     const goToEggGit = () => {
       open('https://github.com/swc9803/eggtest')
@@ -66,7 +68,7 @@ export default {
   left: 50%;
   width: 70%;
   box-shadow: 0 0 0 2px rgb(206, 192, 68) inset;
-  background: rgb(255, 255, 255);
+  background: rgb(235, 235, 235);
   border-radius: 10px;
   overflow: hidden;
   .projectTitle {
@@ -81,9 +83,11 @@ export default {
     .slider {
       flex: 1 1 45%;
       margin: 20px;
-      height: 50vh;
       overflow: hidden;
       cursor: pointer;
+      img {
+        width: 100%;
+      }
     }
     .projectDes {
       flex: 1 1 45%;
@@ -105,18 +109,6 @@ export default {
         }
       }
     }
-  }
-  .blue {
-    background: blue;
-  }
-  .yellow {
-    background: yellow;
-  }
-  .red {
-    background: red;
-  }
-  .green {
-    background: rgb(91, 255, 59);
   }
 }
 </style>
