@@ -19,7 +19,7 @@
         </div>
         <div class="frame">
           <img src="@/assets/examples/vueEx1.png" @click="focusVue" alt="vueEx">
-          이미지를 클릭하시면 확대됩니다.
+          <p>이미지를 클릭하시면 확대됩니다.</p>
         </div>
       </section>
     </div>
@@ -32,7 +32,7 @@
         </div>
         <div class="frame">
           <img src="@/assets/examples/jsEx.png" @click="focusJs" alt="jsEx">
-          이미지를 클릭하시면 확대됩니다.
+          <p>이미지를 클릭하시면 확대됩니다.</p>
         </div>
       </section>
     </div>
@@ -45,7 +45,7 @@
         </div>
         <div class="frame">
           <img src="@/assets/examples/scssEx.png" @click="focusScss" alt="scssEx">
-          이미지를 클릭하시면 확대됩니다.
+          <p>이미지를 클릭하시면 확대됩니다.</p>
         </div>
       </section>
     </div>
@@ -58,7 +58,7 @@
         </div>
         <div class="frame">
           <img src="@/assets/examples/gsapEx.png" @click="focusGsap" alt="gsapEx">
-          이미지를 클릭하시면 확대됩니다.
+          <p>이미지를 클릭하시면 확대됩니다.</p>
         </div>
       </section>
     </div>
@@ -71,7 +71,7 @@
         </div>
         <div class="frame">
           <img src="@/assets/examples/figmaEx1.png" @click="focusFigma" alt="figmaEx">
-          이미지를 클릭하시면 확대됩니다.
+          <p>이미지를 클릭하시면 확대됩니다.</p>
         </div>
       </section>
     </div>
@@ -84,7 +84,7 @@
         </div>
         <div class="frame">
           <img src="@/assets/examples/firebaseEx1.png" @click="focusFirebase" alt="firebaseEx">
-          <span>이미지를 클릭하시면 확대됩니다.</span>
+          <p>이미지를 클릭하시면 확대됩니다.</p>
         </div>
       </section>
     </div>
@@ -343,28 +343,29 @@ h2 {
   width: 80%;
   margin-top: 50px;
   transition: 0.3s;
+  color: #ffffff;
   .vue {
-    background: #b4ffb8;
+    background: #0a8810;
     box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
   }
   .js {
-    background: #f1ffbb;
+    background: #7e9c06;
     box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
   }
   .scss {
-    background: #ffcef8;
+    background: #881777;
     box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
   }
   .gsap {
-    background: #e5ffdb;
+    background: #3faf12;
     box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
   }
   .figma {
-    background: #dfdfdf;
+    background: #757575;
     box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
   }
   .firebase {
-    background: #d5f4ff;
+    background: #0d7297;
     box-shadow: 0 0 0 5px rgb(255, 255, 255) inset;
   }
   .desIcon {
@@ -405,6 +406,9 @@ h2 {
         cursor: pointer;
         border-radius: 2%;
         width: 100%;
+      }
+      p {
+        margin: 5px 0 10px 0 !important
       }
     }
   }

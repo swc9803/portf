@@ -59,6 +59,34 @@
     </div>
   </div>
   <div class="projectInfo">
+    <p class="projectTitle">Portfolio Site</p>
+    <div class="sliderWrap">
+      <swiper class="slider"
+        :slidesPerView="1"
+        :spaceBetween="20"
+        :loop="true"
+        :pagination="{ clickable: true }"
+        :modules="modules"
+      >
+        <swiper-slide><img src="@/assets/gsap/spring.png"></swiper-slide>
+      </swiper>
+      <div class="projectDes">
+        <p class="firstDes">현재 위치하신 사이트입니다. 포트폴리오를</p>
+        <div class="dd">
+          <b>Main-Function</b>
+          <p class="ss">포트폴리오</p>
+        </div>
+        <div class="dd">
+          <b>Front</b>
+          <p class="ss">vue</p>
+        </div>
+        <div class="icons">
+          <img src="@/assets/githubIcon.png" @click="goToPortfolioGit">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="projectInfo">
     <p class="projectTitle">Review Site</p>
     <div class="sliderWrap">
       <swiper class="slider"
@@ -144,6 +172,9 @@ export default {
     const goToGsapSite = () => {
       open('https://pofo-55041.web.app/sea')
     }
+    const goToPortfolioGit = () => {
+      open('https://github.com/swc9803/portf')
+    }
     const goToReviewSite = () => {
       open('https://rhdyd-a7e3b.firebaseapp.com/')
     }
@@ -157,6 +188,7 @@ export default {
       goToEggSite,
       goToEggGit,
       goToGsapSite,
+      goToPortfolioGit,
       goToReviewSite,
       goToPizzaSite,
       modules: [Pagination]
