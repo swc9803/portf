@@ -18,6 +18,18 @@
       <div class="projectDes">
         <p class="firstDes">가장 최근에 제작한 사이트입니다. 여러 사이트를 제작해 보며 반응형 웹과 애니메이션이 부족하다고 느껴 본 사이트는 반응형 레이아웃과 애니메이션에 중점을 두어 제작을 하였습니다.</p>
         <p>개발을 하며 반응형 구현과 애니메이션 제작에 한 발짝 더 다가간 것을 느꼈고, 제작을 하는 데에 익숙해져 시간을 많이 절약했다는 생각이 드는 프로젝트였습니다.</p>
+        <div class="desTitle">
+          <p>Main-Function</p>
+          <p>제품 보기, 고객센터, 오시는 길, 비디오 시청</p>
+        </div>
+        <div class="desTitle">
+          <p>Front-End</p>
+          <p><img src="@/assets/vue.png">Vue, <img src="@/assets/scss.png">Scss</p>
+        </div>
+        <div class="desTitle">
+          <p>Distribution</p>
+          <p><img src="@/assets/firebase.png">Firebase</p>
+        </div>
         <div class="icons">
           <img src="@/assets/homeIcon.png" @click="goToEggSite">
           <img src="@/assets/githubIcon.png" @click="goToEggGit">
@@ -26,7 +38,7 @@
     </div>
   </div>
   <div class="projectInfo">
-    <p class="projectTitle">GSAP 애니메이션 연습</p>
+    <p class="projectTitle">GSAP Animation Practice</p>
     <div class="sliderWrap">
       <swiper class="slider"
         :slidesPerView="1"
@@ -44,13 +56,17 @@
       </swiper>
       <div class="projectDes">
         <p class="firstDes">피그마를 배우며 로고와 여러 그림 등을 그리다 보니 직접 그린 svg로 애니메이션을 만들면 재밌을 것 같다는 생각이 들어 스크롤 애니메이션 등을 제작하게 되었습니다.</p>
-        <div class="dd">
-          <b>Main-Function</b>
-          <p class="ss">애니메이션 감상</p>
+        <div class="desTitle">
+          <p>Main-Function</p>
+          <p>애니메이션 감상</p>
         </div>
-        <div class="dd">
-          <b>Front</b>
-          <p class="ss">vue</p>
+        <div class="desTitle">
+          <p>Front-End</p>
+          <p><img src="@/assets/vue.png">Vue</p>
+        </div>
+        <div class="desTitle">
+          <p>Distribution</p>
+          <p><img src="@/assets/firebase.png">Firebase</p>
         </div>
         <div class="icons">
           <img src="@/assets/homeIcon.png" @click="goToGsapSite">
@@ -71,14 +87,18 @@
         <swiper-slide><img src="@/assets/gsap/spring.png"></swiper-slide>
       </swiper>
       <div class="projectDes">
-        <p class="firstDes">현재 위치하신 사이트입니다. 포트폴리오를</p>
-        <div class="dd">
-          <b>Main-Function</b>
-          <p class="ss">포트폴리오</p>
+        <p class="firstDes">포트폴리오 용으로 제작한 사이트입니다. 이 곳에 작성한 모든 프로젝트는 모두 저 혼자 만든 것입니다. 포트폴리오를</p>
+        <div class="desTitle">
+          <p>Main-Function</p>
+          <p>자기 소개, 보유 기술 나열, 프로젝트</p>
         </div>
-        <div class="dd">
-          <b>Front</b>
-          <p class="ss">vue</p>
+        <div class="desTitle">
+          <p>Front-End</p>
+          <p><img src="@/assets/vue.png">Vue, <img src="@/assets/scss.png">Scss</p>
+        </div>
+        <div class="desTitle">
+          <p>Distribution</p>
+          <p><img src="@/assets/firebase.png">Firebase</p>
         </div>
         <div class="icons">
           <img src="@/assets/githubIcon.png" @click="goToPortfolioGit">
@@ -103,14 +123,19 @@
         <swiper-slide><img src="@/assets/review/review5.png"></swiper-slide>
       </swiper>
       <div class="projectDes">
-        <p class="firstDes">Review</p>
-        <div class="dd">
-          <b>Main-Function</b>
-          <p class="ss">CRUD</p>
+        <p class="firstDes">제가 vue를 배운 후 제일 처음으로 만든 사이트입니다. No-Sql인 Firebase를 사용해 클라우드 데이터베이스를 관리하였습니다.</p>
+        <p>css에 대한 지식이 부족했던 시기라 Bootstrap 클래스의 margin 기능을 많이 활용하였습니다. CRUD에 대해 많은 것을 알게 되었고, 데이터를 효율적으로 관리하는 방법을 배우게 만들어준 사이트 제작이었습니다.</p>
+        <div class="desTitle">
+          <p>Main-Function</p>
+          <p>로그인 및 회원가입, 글 읽기, 쓰기, 삭제, 수정, 이미지 업로드, 댓글 기능</p>
         </div>
-        <div class="dd">
-          <b>Front</b>
-          <p class="ss">vue</p>
+        <div class="desTitle">
+          <p>Front-End</p>
+          <p><img src="@/assets/vue.png">Vue</p>
+        </div>
+        <div class="desTitle">
+          <p>Back-End & Distribution</p>
+          <p><img src="@/assets/firebase.png">Firebase & Firestore</p>
         </div>
         <div class="icons">
           <img src="@/assets/homeIcon.png" @click="goToReviewSite">
@@ -134,14 +159,18 @@
         <swiper-slide><img src="@/assets/pizza/pizza4.png"></swiper-slide>
       </swiper>
       <div class="projectDes">
-        <p class="firstDes">pizza</p>
-        <div class="dd">
-          <b>Main-Function</b>
-          <p class="ss">직접 피자 만들기</p>
+        <p class="firstDes">scss와 반응형 레이아웃을 배우기 이전에 직접 만든 svg를 사용자가 가지고 놀게끔 만들면 재밌겠다는 생각이 들어 만든 사이트입니다.</p>
+        <div class="desTitle">
+          <p>Main-Function</p>
+          <p>제품 보기, 직접 피자 만들기, 오시는 길(Kakao Map)</p>
         </div>
-        <div class="dd">
-          <b>Front</b>
-          <p class="ss">vue</p>
+        <div class="desTitle">
+          <p>Front-End</p>
+          <p><img src="@/assets/vue.png">Vue</p>
+        </div>
+        <div class="desTitle">
+          <p>Distribution</p>
+          <p><img src="@/assets/firebase.png">Firebase</p>
         </div>
         <div class="icons">
           <img src="@/assets/homeIcon.png" @click="goToPizzaSite">
@@ -234,11 +263,23 @@ export default {
       margin-top: 20px;
       word-break: keep-all;
       font-size: 1em;
-      .dd {
+      display: flex;
+      flex-direction: column;
+      .desTitle {
         margin: 0;
-        display: flex;
         p {
           margin: 0;
+          flex: 0 0 30%;
+          &:nth-child(1) {
+            letter-spacing: 1px;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 20px 0 3px 0;
+          }
+          img {
+            width: 1em;
+            margin-right: 5px;
+          }
         }
       }
       .firstDes {
