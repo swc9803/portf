@@ -306,7 +306,7 @@ export default {
 @media screen and (max-width: 1200px) {
   .sliderWrap {
     display: block !important;
-      margin: 25px;
+      margin: 0px;
   }
 }
 </style>

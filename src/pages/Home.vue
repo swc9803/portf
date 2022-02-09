@@ -16,7 +16,7 @@
       </p>
     </div>
   </div>
-  <div class="container aboutme" ref="aboutme">
+  <div class="aboutme" ref="aboutme">
     <Aboutme />
   </div>
   <div class="skills" ref="skills">
