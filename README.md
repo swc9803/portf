@@ -1,24 +1,3 @@
 # portfolio
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+포트폴리오 용으로 제작하였으며 vue 프레임워크와 firebase를 사용해 배포하였습니다.
