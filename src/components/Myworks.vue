@@ -144,7 +144,7 @@
     </div>
   </div>
   <div class="projectInfo">
-    <p class="projectTitle">Pizza Site</p>
+    <p class="projectTitle">Custom Made Pizza Site</p>
     <div class="sliderWrap">
       <swiper class="slider"
         :slidesPerView="1"
@@ -240,6 +240,7 @@ export default {
   overflow: hidden;
   margin-bottom: 5%;
   .projectTitle {
+    color: rgb(70, 70, 70) !important;
     text-align: center;
     font-size: 1.5em;
     font-weight: 600;
@@ -271,6 +272,7 @@ export default {
           margin: 0;
           flex: 0 0 30%;
           &:nth-child(1) {
+            color: rgb(41, 41, 41);
             letter-spacing: 1px;
             font-size: 1.2em;
             font-weight: 600;
@@ -299,6 +301,12 @@ export default {
         }
       }
     }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .sliderWrap {
+    display: block !important;
+      margin: 25px;
   }
 }
 </style>
