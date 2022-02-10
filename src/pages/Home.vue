@@ -171,13 +171,9 @@ export default {
     }
   }
 }
-// 임시 스타일
-.skills,
-.myworks,
 .contact {
-  position: relative;
+  background: #212121;
 }
-
 @media screen and (max-width: 768px) {
   .main {
     .wrapper {

@@ -1,14 +1,13 @@
 <template>
-  <div>
-    <p>깃헙 링크</p>
-    <svg @click="goToGithub" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 300 250">
+  <div class="footer">
+    <!-- <p>깃헙 링크</p> -->
+    <svg @click="goToGithub" @mouseover="play1" @mouseout="reverse1" ref="gitIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 300 300">
       <defs>
         <path id="Line 11" d="M1-1h27.9"/>
       </defs>
-      <g id="Frame 4">
-        <path fill="#fff" d="M0 0h300v250H0z"/>
-        <path id="githubIcon 1" fill="url(#git1)" d="M62 89h160v160H62z"/>
-        <g class="light" id="light1" stroke="#D9DB8A" stroke-linecap="round" stroke-width="2">
+      <g id="github">
+        <path fill="#212121" d="M0 0h300v300H0z"/>
+        <g ref="light1" id="light1" stroke="#D9DB8A" stroke-linecap="round" stroke-width="2">
           <path id="Line 8" d="M63.2 100.4 37.5 89.3"/>
           <use xlink:href="#Line 11" transform="scale(1 -1) rotate(23.4 359.2 519.2)"/>
           <path id="Line 9" d="M82.1 66.1 62.4 46.3"/>
@@ -16,79 +15,66 @@
           <path id="Line 10" d="m112.5 35.2-7.2-27"/>
           <use xlink:href="#Line 11" id="Line 13" transform="scale(1 -1) rotate(75 116.4 103.2)"/>
         </g>
+        <path ref="gitText" id="gitText" fill="#fff" d="M111.3 275.4c0 1.4.1 2.6.4 3.7.3 1 .6 2 1 2.7.5.8 1 1.3 1.6 1.7.6.4 1.3.6 2 .6.6 0 1.2-.2 1.7-.5.5-.2 1-.6 1.3-1 .4-.5.6-1 .8-1.6l.3-1.8v-1.6H116v-2.9h9v4.3a7 7 0 0 1-2.7 5.7 9 9 0 0 1-3 1.6c-1 .4-2.1.6-3.3.6-1.4 0-2.6-.3-3.8-.8a8 8 0 0 1-3-2c-.8-1-1.5-2.2-2-3.6-.4-1.4-.6-3.1-.6-5 0-2 .2-3.6.7-5 .5-1.5 1.2-2.7 2-3.6 1-1 2-1.7 3-2.2a10.5 10.5 0 0 1 7.1-.2c1.1.3 2 .7 2.7 1.2a6 6 0 0 1 1.7 2c.4.7.6 1.4.6 2.2 0 .7-.3 1.3-.8 1.7-.4.5-1 .7-1.7.7-1.1 0-2-.5-2.4-1.5.2-.5.2-1 .2-1.4 0-.5-.2-.9-.5-1.3a3 3 0 0 0-1.2-1 4 4 0 0 0-3.8.2c-.5.4-1 1-1.5 1.7a10 10 0 0 0-1 2.7c-.3 1.1-.4 2.3-.4 3.7Zm20.4 10.7h-4.5v-12.2c0-.3 0-.6-.2-.8a1 1 0 0 0-.5-.6l5.2-1.7V286Zm0-22v4.5h-4.5V264h4.5Zm2 6.6h2.4V268l-.1-.8a1 1 0 0 0-.6-.5l5.2-1.8v5.8h3.3v2.8h-3.3v8.7c0 .8.1 1.3.4 1.5.2.3.5.4 1 .4.3 0 .6 0 .9-.2l.8-.4.5 2.3c-.5.5-1.1.7-1.7.9l-1.7.2c-1.7 0-2.9-.5-3.6-1.3-.7-.9-1.1-2.3-1.1-4.3v-7.8h-2.4v-2.8Zm26.2 15.4h-4.5v-10c0-1-.2-1.8-.6-2.3-.4-.6-1.1-.8-2.1-.8a6 6 0 0 0-2.2.4V286H146v-19c0-.2 0-.5-.2-.7a1 1 0 0 0-.5-.6l5.2-1.8v6.8a8 8 0 0 1 1.7-.5l1.9-.2c1.2 0 2.2.2 3 .6.7.3 1.3.8 1.8 1.3.4.6.7 1.2.8 1.9.2.7.2 1.3.2 2V286Zm16.7-16.3V286H172v-1c-.5.5-1 .8-1.7 1-.7.3-1.4.4-2.1.4-1 0-2-.2-2.7-.6a5 5 0 0 1-2.7-3.2l-.2-2V273c0-.2 0-.5-.2-.7a1 1 0 0 0-.5-.6l5.2-1.7v10.5c0 1 .2 1.8.6 2.4.4.5 1 .7 1.7.7.5 0 1 0 1.5-.3l1.1-.8v-9.7l-.1-.7a1 1 0 0 0-.6-.6l5.3-1.7Zm10.6 16.7c-.7 0-1.3-.1-1.8-.3-.6-.2-1.1-.4-1.7-.8v.7h-4.5v-19c0-.2 0-.5-.2-.7a1 1 0 0 0-.5-.6l5.2-1.8v7.7c.5-.4 1-.6 1.6-.9.6-.2 1.2-.3 1.9-.3 1 0 2 .2 2.8.6a7 7 0 0 1 3.3 4.2 11.7 11.7 0 0 1 0 6.6c-.4 1-.8 1.7-1.4 2.4-.6.7-1.2 1.2-2 1.6a6 6 0 0 1-2.7.6Zm2-7.7c0-1-.1-1.9-.3-2.6a5 5 0 0 0-.8-1.7l-1-.9-1.1-.2a3.6 3.6 0 0 0-2.3.7v9l1 .4 1 .1c.5 0 1 0 1.3-.2.5-.2.8-.5 1.1-.9.3-.4.6-.9.8-1.5.2-.6.3-1.3.3-2.2Z"/>
+        <path id="git" fill="#fff" fill-rule="evenodd" d="M150 88a80 80 0 0 0-25.3 155.9c4 .7 5.5-1.7 5.5-3.8l-.1-14.9c-20.1 3.7-25.3-4.9-26.9-9.4-.9-2.3-4.8-9.4-8.2-11.3-2.8-1.5-6.8-5.2-.1-5.3 6.3-.1 10.8 5.8 12.3 8.2 7.2 12.1 18.7 8.7 23.3 6.6.7-5.2 2.8-8.7 5.1-10.7-17.8-2-36.4-8.9-36.4-39.5 0-8.7 3.1-15.9 8.2-21.5-.8-2-3.6-10.2.8-21.2 0 0 6.7-2.1 22 8.2a74.2 74.2 0 0 1 40 0c15.3-10.4 22-8.2 22-8.2 4.4 11 1.6 19.2.8 21.2a31 31 0 0 1 8.2 21.5c0 30.7-18.7 37.5-36.5 39.5 2.9 2.5 5.4 7.3 5.4 14.8l-.1 22c0 2.1 1.5 4.6 5.5 3.8A80.1 80.1 0 0 0 150 88Z" clip-rule="evenodd"/>
       </g>
-      <defs>
-        <pattern id="git1" width="1" height="1" patternContentUnits="objectBoundingBox">
-          <use xlink:href="#image0_138_63" transform="scale(.00625)"/>
-        </pattern>
-        <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACgCAMAAAC8EZcfAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAJcEhZcwAACxMAAAsTAQCanBgAAAKyUExURUdwTBQTExQUFBQTExQTExQTExQTExQTEwAAABQTEwAAAAAAABQTEysrKxQTExMSEhUTExAQEBMTExMSEhwUFBMSEhMSEhMTExQUFBMTExMSEhMTExQUFBMSEhQTExMTExMSEhMSEhENDRMTExQTExQSEhkZGRMSEhQTExMSEhQTExQTExQTExQSEhkZGRMTExQTExMSEhURERMTEyQkJBUTExMSEhQUFBQTExQRERQSEhISEhQTExQSEhMSEhQSEhYUFBQTExQSEhEPDxMSEhMSEhQTExUUFBUUFBQTExUSEhQSEhQTExYWFhQTExQTExMTExMTExMSEhcXFxQSEhISEhQUFBMTExQTExQTEx4WFhUTExUTExwcHBQSEhcVFRQSEhMTExISEhQUFBERERMSEhMTExQSEhMTExMREQ8PDxMSEhQTExQTExQSEhMSEhMTExMSEhMSEhQTExUVFRQSEhwVFRUTExQTE1VVVRQSEhISEhQTExMTExMSEhMTExQSEhQTExMSEhMTExQNDRQTExMTExUTExQSEhQUFBQTExQUFBMSEhQUFBQUFBQSEhMSEhAQEBUUFBUSEhMSEg4ODhQSEhUTExUVFRUTExMTExQSEicnJxQUFBMTExQTExYTExMSEhQSEhMTExMSEhMTExQTExQUFBMTExQSEhMSEhQTExMSEhMRERQTExUTExQTExQSEhQUFBUQEBMSEhQTExISEhMTExMTExQTExUTExMRERQUFAoKChQTExQTExMSEhUTExUVFRMRERMRERERERMTExISEhMSEhMSEhQUFBUVFRYUFBcXFxUTExQTExQUFBUVFRMRERQUFBMSEhQSEhISEhQTExQUFBMTExMSEhUTE39/fxUUFBMRERQTExQSEhQUFBUQEBMTExUTExQTEx82S7sAAADldFJOUwDyF/379fe/Af4CA7cF/FK4EMr5BPD74CPJ0WoNkM5d69QTpOdnD6j2OePz6MEK+omjHa4Hui0/2CwcRtyEVXEh6X8iWouNOzPArIFZGu/s17LJC6YOm57xZRHRUAnQIEDVKksV7r3CSFgR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" id="image0_138_63" width="160" height="160" data-name="githubIcon.png"/>
-      </defs>
     </svg>
-    <p>이메일</p>
-    <svg @click="goToEmail" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 300 250">
+    <!-- <p>이메일</p> -->
+    <svg @click="goToEmail" @mouseover="play2" @mouseout="reverse2" ref="emailIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 300 300">
       <defs>
         <path id="Line 11" d="M1-1h27.9"/>
       </defs>
-      <g id="Frame 5">
-        <path fill="#fff" d="M0 0h300v250H0z"/>
-        <g id="email">
-          <rect id="Rectangle 37" width="157" height="107.8" x="71.5" y="123.5" fill="#fff" stroke="url(#paint0_radial_138_64)" stroke-width="3" rx="8.5"/>
+      <g id="email">
+        <path fill="#212121" d="M0 0h300v300H0z"/>
+        <g id="email_2">
+          <rect id="Rectangle 37" width="157" height="107.8" x="71.5" y="123.5" fill="#2E2E2E" stroke="#fff" stroke-width="3" rx="8.5"/>
           <g id="Rectangle 38">
             <mask id="path-2-inside-1_138_64" fill="#fff">
               <path d="m150 177.4 72.1 49.9a3 3 0 0 1-1.7 5.5H79.6a3 3 0 0 1-1.7-5.5l72.1-50Z"/>
             </mask>
-            <path fill="#fff" d="m150 177.4 72.1 49.9a3 3 0 0 1-1.7 5.5H79.6a3 3 0 0 1-1.7-5.5l72.1-50Z"/>
-            <path fill="url(#paint1_radial_138_64)" d="M151.5 177.4v-3.5h-3v3.5h3Zm-1.5 0 1.7-2.5-1.7-1.2-1.7 1.2 1.7 2.5Zm72.1 49.9 1.7-2.5-1.7 2.5Zm-73.8-47.4 72.1 49.9 3.4-5-72-49.9-3.5 5Zm72.1 49.9H79.6v6h140.8v-6Zm-140.8 0 72.1-50-3.4-4.9-72.1 50 3.4 4.9Zm0 0-3.4-5a6 6 0 0 0 3.4 11v-6Zm140.8 0v6a6 6 0 0 0 3.4-11l-3.4 5Z" mask="url(#path-2-inside-1_138_64)"/>
+            <path fill="#212121" d="m150 177.4 72.1 49.9a3 3 0 0 1-1.7 5.5H79.6a3 3 0 0 1-1.7-5.5l72.1-50Z"/>
+            <path fill="#fff" d="M151.5 177.4v-3.5h-3v3.5h3Zm-1.5 0 1.7-2.5-1.7-1.2-1.7 1.2 1.7 2.5Zm72.1 49.9 1.7-2.5-1.7 2.5Zm-73.8-47.4 72.1 49.9 3.4-5-72-49.9-3.5 5Zm72.1 49.9H79.6v6h140.8v-6Zm-140.8 0 72.1-50-3.4-4.9-72.1 50 3.4 4.9Zm0 0-3.4-5a6 6 0 0 0 3.4 11v-6Zm140.8 0v6a6 6 0 0 0 3.4-11l-3.4 5Z" mask="url(#path-2-inside-1_138_64)"/>
           </g>
+          <path id="topunder" fill="#fff" stroke="#fff" stroke-width="3" d="m150 175.6-67.5-51.2h135L150 175.6Z"/>
           <g id="top">
-            <mask id="path-4-inside-2_138_64" fill="#fff">
-              <path d="m150 189.8-73.7-61.6a3 3 0 0 1 2-5.3h143.4a3 3 0 0 1 2 5.3L150 189.8Z"/>
+            <mask id="path-5-inside-2_138_64" fill="#fff">
+              <path d="M150 190.5 78 123h144l-72 67.5Z"/>
             </mask>
-            <path fill="#fff" d="m150 189.8-73.7-61.6a3 3 0 0 1 2-5.3h143.4a3 3 0 0 1 2 5.3L150 189.8Z"/>
-            <path fill="url(#paint2_radial_138_64)" d="M148.5 189.8v4.3h3v-4.3h-3Zm1.5 0-2 2.3 2 1.6 2-1.6-2-2.3Zm73.7-61.6-2-2.3 2 2.3Zm-147.4 0 2-2.3-2 2.3Zm75.6 59.3L78.3 126l-3.9 4.6 73.7 61.6 3.8-4.6ZM78.3 126h143.4v-6H78.3v6Zm143.4 0-73.6 61.6 3.8 4.6 73.7-61.6-3.9-4.6Zm0 0 3.9 4.6a6 6 0 0 0-3.9-10.6v6Zm-143.4 0v-6a6 6 0 0 0-3.9 10.6l3.9-4.6Z" mask="url(#path-4-inside-2_138_64)"/>
+            <path fill="#212121" d="M150 190.5 78 123h144l-72 67.5Z"/>
+            <path fill="#fff" d="M148.5 190.5V211h3v-20.5h-3Zm1.5 0-2 2.2 2 2 2-2-2-2.2ZM78 123v-3h-7.6l5.5 5.2L78 123Zm144 0 2 2.2 5.6-5.2H222v3Zm-70 65.3-72-67.5-4 4.4 72 67.5 4-4.4ZM78 126h144v-6H78v6Zm142-5.2-72 67.5 4 4.4 72-67.5-4-4.4Z" mask="url(#path-5-inside-2_138_64)"/>
+          </g>
+          <g id="paper">
+            <path id="Rectangle 32" fill="#fff" d="M121 97h58v62.3L150 187l-29-27.7V97Z"/>
+            <path id="Line 5" stroke="#000" d="M126 129.1h48"/>
+            <path id="Line 6" stroke="#000" d="M126 138.2h48"/>
+            <path id="Line 4" stroke="#000" d="M126 120.1h48"/>
+            <path id="Line 7" stroke="#000" d="M126 148.4h48"/>
+            <path id="Line 8" stroke="#000" d="M126 158.6h48"/>
           </g>
           <g id="emark">
-            <circle id="Ellipse 28" cx="150" cy="182.7" r="14.3" fill="#fff" stroke="url(#paint3_radial_138_64)" stroke-width="3"/>
-            <path id="@" fill="#212121" d="M159.6 183.7c0 .7-.2 1.4-.4 2.2a7 7 0 0 1-.8 2c-.4.5-.9 1-1.5 1.4a4 4 0 0 1-2.1.5c-.6 0-1 0-1.4-.2-.4-.2-.8-.5-1-.9-.3-.3-.5-.8-.6-1.3v-1.7l.6-6.5h1.7l-.6 6.5v1.4c.1.4.2.7.4.9.2.1.3.3.5.3l.6.1c.5 0 .9 0 1.3-.3a3 3 0 0 0 .9-1l.6-1.5.3-1.9c0-1.2 0-2.2-.2-3.2s-.4-1.9-.8-2.6a6 6 0 0 0-3.7-3.1 9.4 9.4 0 0 0-5.6 0c-.8.3-1.6.7-2.2 1.3-.7.6-1.3 1.2-1.7 2a11 11 0 0 0-1.2 2.7 14.5 14.5 0 0 0 .6 9 6.6 6.6 0 0 0 3.7 3.2 9.2 9.2 0 0 0 6.6-.5l.4 1.4a6 6 0 0 1-2 .7 11.2 11.2 0 0 1-5.6-.2 8 8 0 0 1-4.5-3.7 15.2 15.2 0 0 1 .6-13.4 10 10 0 0 1 2-2.4 8.9 8.9 0 0 1 6-2c1.3 0 2.4 0 3.3.4a7.8 7.8 0 0 1 4.4 3.7c.5.9.9 1.9 1.1 3 .2 1.1.3 2.4.3 3.7Zm-12 1v1.5c0 .4 0 .8.2 1 .2.3.4.6.7.7a1.8 1.8 0 0 0 1.6 0c.2 0 .5-.2.7-.5.3-.2.5-.5.7-.9l.5-1.4.8.8a7 7 0 0 1-.7 1.7c-.3.5-.6 1-1 1.2a4 4 0 0 1-1 .8 3 3 0 0 1-1.3.2 3 3 0 0 1-1.5-.3c-.4-.3-.8-.6-1-1-.3-.5-.5-1-.6-1.7v-2.1a10.5 10.5 0 0 1 1.2-4.1c.3-.6.7-1 1.1-1.4.4-.4.9-.7 1.3-.9l1.4-.3c.9 0 1.5.1 2 .4l1.4.8-1 1.2-.9-.6c-.3-.2-.8-.3-1.3-.3l-1.2.3-1 1-.8 1.6-.4 2.3Z"/>
+            <circle id="Ellipse 28" cx="150" cy="182.7" r="14.3" fill="#212121" stroke="#fff" stroke-width="3"/>
+            <path id="@" fill="#fff" d="M159.6 183.7c0 .7-.2 1.4-.4 2.2a7 7 0 0 1-.8 2c-.4.5-.9 1-1.5 1.4a4 4 0 0 1-2.1.5c-.6 0-1 0-1.4-.2-.4-.2-.8-.5-1-.9-.3-.3-.5-.8-.6-1.3v-1.7l.6-6.5h1.7l-.6 6.5v1.4c.1.4.2.7.4.9.2.1.3.3.5.3l.6.1c.5 0 .9 0 1.3-.3a3 3 0 0 0 .9-1l.6-1.5.3-1.9c0-1.2 0-2.2-.2-3.2s-.4-1.9-.8-2.6a6 6 0 0 0-3.7-3.1 9.4 9.4 0 0 0-5.6 0c-.8.3-1.6.7-2.2 1.3-.7.6-1.3 1.2-1.7 2a11 11 0 0 0-1.2 2.7 14.5 14.5 0 0 0 .6 9 6.6 6.6 0 0 0 3.7 3.2 9.2 9.2 0 0 0 6.6-.5l.4 1.4a6 6 0 0 1-2 .7 11.2 11.2 0 0 1-5.6-.2 8 8 0 0 1-4.5-3.7 15.2 15.2 0 0 1 .6-13.4 10 10 0 0 1 2-2.4 8.9 8.9 0 0 1 6-2c1.3 0 2.4 0 3.3.4a7.8 7.8 0 0 1 4.4 3.7c.5.9.9 1.9 1.1 3 .2 1.1.3 2.4.3 3.7Zm-12 1v1.5c0 .4 0 .8.2 1 .2.3.4.6.7.7a1.8 1.8 0 0 0 1.6 0c.2 0 .5-.2.7-.5.3-.2.5-.5.7-.9l.5-1.4.8.8a7 7 0 0 1-.7 1.7c-.3.5-.6 1-1 1.2a4 4 0 0 1-1 .8 3 3 0 0 1-1.3.2 3 3 0 0 1-1.5-.3c-.4-.3-.8-.6-1-1-.3-.5-.5-1-.6-1.7v-2.1a10.5 10.5 0 0 1 1.2-4.1c.3-.6.7-1 1.1-1.4.4-.4.9-.7 1.3-.9l1.4-.3c.9 0 1.5.1 2 .4l1.4.8-1 1.2-.9-.6c-.3-.2-.8-.3-1.3-.3l-1.2.3-1 1-.8 1.6-.4 2.3Z"/>
           </g>
         </g>
-        <g class="light" id="light2" stroke="#D9DB8A" stroke-linecap="round" stroke-width="2">
-          <path id="Line 8" d="M63.2 100.4 37.5 89.3"/>
+        <g ref="light2" id="light2" stroke="#D9DB8A" stroke-linecap="round" stroke-width="2">
+          <path id="Line 8_2" d="M63.2 100.4 37.5 89.3"/>
           <use xlink:href="#Line 11" transform="scale(1 -1) rotate(23.4 359.2 519.2)"/>
           <path id="Line 9" d="M82.1 66.1 62.4 46.3"/>
           <use xlink:href="#Line 11" id="Line 12" transform="scale(1 -1) rotate(45 187.9 228)"/>
           <path id="Line 10" d="m112.5 35.2-7.2-27"/>
           <use xlink:href="#Line 11" id="Line 13" transform="scale(1 -1) rotate(75 116.4 103.2)"/>
         </g>
+        <path ref="emailText" id="emailText" fill="#fff" d="m115 267.1-.1-.7a1 1 0 0 0-.6-.6l5.4-1.8v1h9.7v2.8h-9.7v5.5h9.1v2.8h-9v7.1h10.4v2.9H115v-19Zm38.8 19h-4.4v-10a4 4 0 0 0-.6-2.2c-.3-.6-.9-.8-1.6-.8a3 3 0 0 0-2.2.8c.3.8.4 1.5.4 2.1v10h-4.5v-9.8c0-1-.1-1.8-.5-2.3-.3-.6-.8-.8-1.7-.8a3 3 0 0 0-1.2.2c-.3.1-.7.3-1 .6V286h-4.4v-13.3l-.1-.7a1 1 0 0 0-.6-.6l5.2-1.7v1.5c.5-.3 1-.6 1.7-.8l1.8-.3a4.9 4.9 0 0 1 4 1.8c.6-.7 1.4-1.2 2.2-1.4.9-.2 1.7-.4 2.5-.4 1 0 1.8.2 2.4.6.7.3 1.2.8 1.6 1.4.3.5.6 1.1.8 1.8l.2 2v10Zm16.8 0h-4.5v-1l-2.2 1c-.9.3-1.8.4-2.8.4-1.5 0-2.8-.4-3.8-1.2-1-.8-1.4-2-1.4-3.6 0-.8.2-1.5.6-2 .4-.7 1-1.1 1.5-1.6l2.1-1 2.3-.5a23.8 23.8 0 0 1 3.7-.2c-.1-1.3-.4-2.1-1-2.7-.4-.5-1-.8-1.7-.8-.8 0-1.6.2-2.2.7a7 7 0 0 0-1.8 1.8l-2.8-2.2c.7-1 1.6-1.8 2.8-2.3a10.2 10.2 0 0 1 6.8-.4 6 6 0 0 1 2.3 1.2c.6.5 1.1 1.2 1.5 2 .4 1 .6 2 .6 3.2v9.2Zm-10-4.2c0 .6.3 1 .7 1.4.4.2 1 .3 1.6.3.6 0 1.1 0 1.7-.2a8 8 0 0 0 1.5-.7v-4a49.7 49.7 0 0 0-3.6.8c-.3.1-.7.3-1 .6l-.6.8a2 2 0 0 0-.2 1Zm17.2 4.2h-4.6v-12.2l-.1-.8a1 1 0 0 0-.6-.6l5.3-1.7V286Zm0-22v4.5h-4.6V264h4.6Zm7.2 22h-4.6v-19l-.1-.7a1 1 0 0 0-.6-.6l5.3-1.8v22Z"/>
       </g>
-      <defs>
-        <radialGradient id="paint0_radial_138_64" cx="0" cy="0" r="1" gradientTransform="matrix(0 55.3846 -80 0 150 177.4)" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#AAA"/>
-          <stop offset="1" stop-color="#212121"/>
-        </radialGradient>
-        <radialGradient id="paint1_radial_138_64" cx="0" cy="0" r="1" gradientTransform="matrix(0 29.4506 -80 0 150 203.3)" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#AAA"/>
-          <stop offset="1" stop-color="#212121"/>
-        </radialGradient>
-        <radialGradient id="paint2_radial_138_64" cx="0" cy="0" r="1" gradientTransform="matrix(0 -35.6044 80 0 150 158.5)" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#AAA"/>
-          <stop offset="1" stop-color="#212121"/>
-        </radialGradient>
-        <radialGradient id="paint3_radial_138_64" cx="0" cy="0" r="1" gradientTransform="rotate(90 -16.3 166.3) scale(15.8242)" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#AAA"/>
-          <stop offset="1" stop-color="#212121"/>
-        </radialGradient>
-      </defs>
     </svg>
-    <p>오픈채팅</p>
-    <svg @click="goToKakao" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 300 250">
+    <!-- <p>오픈채팅</p> -->
+    <svg @click="goToKakao" @mouseover="play3" @mouseout="reverse3" ref="kakaoIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 300 300">
       <defs>
         <path id="Line 11" d="M1-1h27.9"/>
       </defs>
       <g id="kakao">
-        <path fill="#fff" d="M0 0h300v250H0z"/>
-        <path id="kakao 1" fill="url(#pattern0)" d="M70 94h160v156H70z"/>
-        <g class="light" id="light3" stroke="#D9DB8A" stroke-linecap="round" stroke-width="2">
+        <path fill="#212121" d="M0 0h300v300H0z"/>
+        <g ref="light3" id="light3" stroke="#D9DB8A" stroke-linecap="round" stroke-width="2">
           <path id="Line 8" d="M63.2 100.4 37.5 89.3"/>
           <use xlink:href="#Line 11" transform="scale(1 -1) rotate(23.4 359.2 519.2)"/>
           <path id="Line 9" d="M82.1 66.1 62.4 46.3"/>
@@ -96,42 +82,133 @@
           <path id="Line 10" d="m112.5 35.2-7.2-27"/>
           <use xlink:href="#Line 11" id="Line 13" transform="scale(1 -1) rotate(75 116.4 103.2)"/>
         </g>
+        <path ref="kakaoText" id="kakaoText" fill="#fff" d="M120.6 265.7h-3.8V249.9l-.5-.5 4.3-1.4v7.3l5.4-6.6h4.1l-6.4 7.5 7.3 9.5h-4.2l-5.2-7-1 1.1v5.9Zm22.2 0H139v-.8l-1.7.8c-.7.2-1.4.3-2.2.3-1.3 0-2.3-.3-3-1-.8-.6-1.2-1.6-1.2-2.9 0-.6.2-1.1.5-1.6s.7-.9 1.2-1.2a9.6 9.6 0 0 1 3.5-1.2 18.6 18.6 0 0 1 3-.2c-.1-1-.4-1.7-.8-2.1-.3-.5-.8-.7-1.4-.7a3 3 0 0 0-1.8.6c-.5.4-1 .8-1.4 1.4l-2.2-1.7c.6-.8 1.3-1.5 2.2-1.9a8.2 8.2 0 0 1 5.4-.4l1.9 1c.5.5.9 1 1.2 1.7.3.7.5 1.5.5 2.5v7.4Zm-8-3.4c0 .5.2.9.5 1.1.4.2.8.3 1.4.3.4 0 .8 0 1.2-.2l1.2-.5v-3.2a36.2 36.2 0 0 0-2.8.6 3 3 0 0 0-.7.5c-.3.1-.4.4-.6.6l-.2.8Zm13.7 3.4H145v-15.2l-.1-.6-.5-.5 4.2-1.4v9.4l3.5-4h4l-4.5 4.8 5.4 7.5h-4.1l-3.4-5.2-.9 1v4.2Zm20.4 0h-3.6v-.8l-1.8.8c-.6.2-1.3.3-2.1.3-1.3 0-2.3-.3-3-1-.8-.6-1.2-1.6-1.2-2.9 0-.6.1-1.1.5-1.6.3-.5.7-.9 1.2-1.2a9.6 9.6 0 0 1 3.5-1.2 18.6 18.6 0 0 1 2.9-.2c0-1-.3-1.7-.7-2.1-.4-.5-.9-.7-1.4-.7a3 3 0 0 0-1.8.6c-.6.4-1 .8-1.4 1.4l-2.3-1.7c.6-.8 1.3-1.5 2.2-1.9 1-.4 2-.6 3.2-.6.8 0 1.6 0 2.3.3.7.2 1.3.5 1.8 1 .5.4 1 1 1.3 1.6.3.7.4 1.5.4 2.5v7.4Zm-8-3.4c0 .5.3.9.6 1.1.3.2.8.3 1.3.3.4 0 .9 0 1.3-.2l1.2-.5v-3.2a36.8 36.8 0 0 0-2.8.6 2.6 2.6 0 0 0-1.3 1.1c-.2.2-.2.5-.2.8Zm13.5-2.7c0 .6 0 1.2.2 1.8l.5 1.4.8 1 1.2.2c.4 0 .8 0 1.2-.3.3-.2.6-.5.8-1 .3-.3.4-.8.5-1.3a7.9 7.9 0 0 0-.5-5l-.8-1a2 2 0 0 0-1.2-.3 2 2 0 0 0-1.2.4c-.3.2-.6.5-.8 1l-.5 1.3-.2 1.8Zm-3.8 0c0-1 .2-2 .5-2.8a6.5 6.5 0 0 1 6-4 6.6 6.6 0 0 1 4.6 1.9l1.4 2c.3 1 .5 1.8.5 2.9a7 7 0 0 1-2 5 6.6 6.6 0 0 1-7 1.3 6.2 6.2 0 0 1-3.5-3.5c-.3-.8-.5-1.8-.5-2.8Zm-33.7 34h-3.7V279h-4.7v-2.3h13v2.3h-4.6v14.7Zm15.4 0h-3.7v-.7l-1.7.8c-.7.2-1.4.3-2.2.3-1.3 0-2.3-.3-3-1-.8-.6-1.2-1.6-1.2-2.9 0-.6.2-1.1.5-1.6s.7-.9 1.2-1.2a9.6 9.6 0 0 1 3.5-1.2 18.6 18.6 0 0 1 3-.2c-.1-1-.4-1.7-.8-2.1-.3-.5-.8-.7-1.4-.7a3 3 0 0 0-1.8.6c-.5.4-1 .8-1.4 1.4l-2.2-1.7c.6-.8 1.3-1.5 2.2-1.9a8.2 8.2 0 0 1 5.4-.4l1.9 1c.5.5 1 1 1.2 1.7.3.7.5 1.5.5 2.5v7.4Zm-8-3.3c0 .5.2.9.5 1.1.4.2.8.3 1.4.3.4 0 .8 0 1.2-.2l1.2-.5v-3.2a36.2 36.2 0 0 0-2.8.6 3 3 0 0 0-.7.5c-.3.1-.4.4-.6.6l-.2.8Zm13.7 3.4h-3.6v-15.2l-.1-.6-.5-.5 4.2-1.4v17.7Zm5.8 0H160V277.9l-.5-.5 4.2-1.4v9.4l3.4-4h4.1l-4.5 4.8 5.4 7.5H168l-3.4-5.2-.8 1v4.2Z"/>
+        <g id="Group 11" fill="#fff" fill-rule="evenodd" clip-rule="evenodd">
+          <path id="Vector" d="M150 94a70 70 0 1 0 0 140 70 70 0 0 0 0-140Zm-46.7 68.9c0-20.3 21-36.8 46.7-36.8 25.8 0 46.7 16.5 46.7 36.8 0 20.3-21 36.8-46.7 36.8-2.8 0-5.6-.2-8.3-.6a251.8 251.8 0 0 1-19.7 13s-.6.3-1.1 0c-.5-.3-.4-1.1-.4-1.1.1-1 4-14.5 4.7-17-13.1-6.5-21.9-18-21.9-31.1Z"/>
+          <path id="Vector_2" d="M124.2 175.7a2.6 2.6 0 0 1-2.7-2.5v-16h-4.2a2.6 2.6 0 0 1 0-5.3h13.8a2.6 2.6 0 1 1 0 5.3h-4.2v16c0 1.4-1.2 2.5-2.7 2.5Zm23.6 0c-1.1 0-2-.5-2.2-1.2l-1.4-3.5H136l-1.3 3.5c-.3.7-1.1 1.2-2.3 1.2a4 4 0 0 1-1.7-.4c-.7-.3-1.4-1.3-.6-3.8l6.4-17a4 4 0 0 1 3.6-2.6 4 4 0 0 1 3.6 2.6l6.5 17c.8 2.5 0 3.5-.7 3.8-.5.3-1.1.4-1.7.4Zm-5-9.5-2.7-7.6-2.7 7.6h5.4Zm11.7 9.1a2.5 2.5 0 0 1-2.6-2.4v-18.3c0-1.5 1.2-2.7 2.8-2.7 1.5 0 2.7 1.2 2.7 2.7v15.8h5.7c1.4 0 2.6 1.1 2.6 2.5 0 1.3-1.2 2.4-2.6 2.4h-8.6Zm15 .4a2.7 2.7 0 0 1-2.7-2.7v-18.4a2.7 2.7 0 0 1 5.3 0v5.8l7.5-7.5a2 2 0 0 1 1.5-.6c.7 0 1.4.2 1.9.7.5.5.7 1.1.8 1.8 0 .6-.2 1.2-.6 1.6l-6.1 6.1 6.6 8.8a2.7 2.7 0 0 1 .5 2 2.7 2.7 0 0 1-3.9 2l-1-.7-6.2-8.4-1 1v5.8a2.7 2.7 0 0 1-2.7 2.7Z"/>
+        </g>
       </g>
-      <defs>
-        <pattern id="pattern0" width="1" height="1" patternContentUnits="objectBoundingBox">
-          <use xlink:href="#image0_138_73" transform="scale(.00625 .00641)"/>
-        </pattern>
-        <image xlink:href="data:image/png;base64,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" id="image0_138_73" width="160" height="156" data-name="kakao.png"/>
-      </defs>
     </svg>
-    <p>아이콘만 있다가 호버시 아이콘 이름 opacity 1 트렌지션</p>
+    <!-- <p>아이콘만 있다가 호버시 아이콘 이름 light opacity 1 트렌지션</p> -->
   </div>
 </template>
 
 <script>
+import gsap from 'gsap'
+import { onMounted, ref } from 'vue'
 export default {
   setup () {
-    const goToGithub = () => {
-      open('https://github.com/swc9803')
-    }
-    const goToEmail = () => {
-      open('mailto:swc9803@naver.com')
-    }
-    const goToKakao = () => {
-      open('https://open.kakao.com/o/sA1wdaZd')
-    }
+    const goToGithub = () => { open('https://github.com/swc9803') }
+    const goToEmail = () => { open('mailto:swc9803@naver.com') }
+    const goToKakao = () => { open('https://open.kakao.com/o/sA1wdaZd') }
+    const gitIcon = ref()
+    const emailIcon = ref()
+    const kakaoIcon = ref()
+    const gitText = ref()
+    const emailText = ref()
+    const kakaoText = ref()
+    const light1 = ref()
+    const light2 = ref()
+    const light3 = ref()
+    const iconAni1 = gsap.timeline({ paused: true })
+    const iconAni2 = gsap.timeline({ paused: true })
+    const iconAni3 = gsap.timeline({ paused: true })
+
+    onMounted(() => {
+      iconAni1.to(gitIcon.value, {
+        yPercent: -5, opacity: 1, duration: 0.3
+      })
+      iconAni1.to(light1.value, {
+        opacity: 1
+      }, '<')
+      iconAni1.to(gitText.value, {
+        opacity: 1
+      }, '<')
+
+      iconAni2.to(emailIcon.value, {
+        yPercent: -5, opacity: 1, duration: 0.3
+      })
+      iconAni2.to(light2.value, {
+        opacity: 1
+      }, '<')
+      iconAni2.to(emailText.value, {
+        opacity: 1
+      }, '<')
+
+      iconAni3.to(kakaoIcon.value, {
+        yPercent: -5, opacity: 1, duration: 0.3
+      })
+      iconAni3.to(light3.value, {
+        opacity: 1
+      }, '<')
+      iconAni3.to(kakaoText.value, {
+        opacity: 1
+      }, '<')
+    })
+
+    const play1 = () => iconAni1.play()
+    const play2 = () => iconAni2.play()
+    const play3 = () => iconAni3.play()
+    const reverse1 = () => iconAni1.reverse()
+    const reverse2 = () => iconAni2.reverse()
+    const reverse3 = () => iconAni3.reverse()
+
     return {
-      goToGithub, goToEmail, goToKakao
+      goToGithub,
+      goToEmail,
+      goToKakao,
+      gitIcon,
+      emailIcon,
+      kakaoIcon,
+      gitText,
+      emailText,
+      kakaoText,
+      light1,
+      light2,
+      light3,
+      play1,
+      play2,
+      play3,
+      reverse1,
+      reverse2,
+      reverse3
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-svg {
-  width: 160px;
-  .light {
-    opacity: 0;
+.footer {
+  position: relative;
+  transform: translate(-50%);
+  left: 50%;
+  display: flex;
+  justify-content: center;
+  svg {
+    opacity: 0.7;
+    cursor: pointer;
+    width: 140px;
+    margin: 20px 10px 10px 10px;
+    #light1,
+    #light2,
+    #light3 {
+      opacity: 0;
+    }
+    #gitText,
+    #emailText,
+    #kakaoText {
+      opacity: 0;
+    }
+    #paper {
+      opacity: 0;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer {
+    svg {
+      width: 100px;
+    }
   }
 }
 </style>

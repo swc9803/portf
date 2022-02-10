@@ -47,7 +47,7 @@ export default {
         gsap.fromTo('.piledsnow1', { xPercent: '0.5' },
           { xPercent: '-0.5', yoyo: true, repeat: 6, duration: 0.1 })
         gsap.to('.piledsnow1', { yPercent: 200, opacity: 0 }, '>')
-      }, 1200)
+      }, 1000)
       addEventListener('mouseout', () => {
         clearTimeout(timer)
       })
@@ -57,7 +57,7 @@ export default {
         gsap.fromTo('.piledsnow2', { xPercent: '0.5' },
           { xPercent: '-0.5', yoyo: true, repeat: 6, duration: 0.1 })
         gsap.to('.piledsnow2', { yPercent: 200, opacity: 0 }, '>')
-      }, 1200)
+      }, 1000)
       addEventListener('mouseout', () => {
         clearTimeout(timer)
       })
