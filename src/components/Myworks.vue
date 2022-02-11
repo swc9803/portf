@@ -55,7 +55,7 @@
         <swiper-slide><img src="@/assets/gsap/process.png"></swiper-slide>
       </swiper>
       <div class="projectDes">
-        <p class="firstDes">피그마를 배우며 로고와 여러 그림 등을 그리다 보니 직접 그린 svg로 애니메이션을 만들면 재밌을 것 같다는 생각이 들어 스크롤 애니메이션 등을 제작하게 되었습니다.</p>
+        <p class="firstDes">Figma를 배우며 로고와 여러 그림 등을 그리다 보니 직접 그린 svg로 애니메이션을 만들면 재밌을 것 같다는 생각이 들어 스크롤 애니메이션 등을 제작하게 되었습니다.</p>
         <div class="desTitle">
           <p>Main-Function</p>
           <p>애니메이션 감상</p>
@@ -84,13 +84,18 @@
         :pagination="{ clickable: true }"
         :modules="modules"
       >
-        <swiper-slide><img src="@/assets/gsap/spring.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/portfolio/pf1.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/portfolio/pf2.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/portfolio/pf3.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/portfolio/pf4.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/portfolio/pf5.png"></swiper-slide>
       </swiper>
       <div class="projectDes">
-        <p class="firstDes">포트폴리오 용으로 제작한 사이트입니다. 이 곳에 작성한 모든 프로젝트는 모두 저 혼자 만든 것입니다. 포트폴리오를</p>
+        <p class="firstDes">포트폴리오 용으로 제작한 사이트입니다. 이 곳에 작성한 모든 프로젝트는 모두 저 혼자 만든 것입니다.</p>
+        <p>제작 기간 동안 많은 사람들의 포트폴리오를 보며 자신이 아직 많이 부족하다는 생각이 들며 뒤쳐지지 않게 더 열심히 배워야겠다는 동기부여를 시켜주었습니다.</p>
         <div class="desTitle">
           <p>Main-Function</p>
-          <p>자기 소개, 보유 기술 나열, 프로젝트</p>
+          <p>자기 소개, 보유 기술 나열, 프로젝트 설명</p>
         </div>
         <div class="desTitle">
           <p>Front-End</p>
@@ -159,7 +164,7 @@
         <swiper-slide><img src="@/assets/pizza/pizza4.png"></swiper-slide>
       </swiper>
       <div class="projectDes">
-        <p class="firstDes">scss와 반응형 레이아웃을 배우기 이전에 직접 만든 svg를 사용자가 가지고 놀게끔 만들면 재밌겠다는 생각이 들어 만든 사이트입니다.</p>
+        <p class="firstDes">scss와 반응형 레이아웃을 배우기 이전에 직접 만든 svg를 사용자가 가지고 놀 수 있게끔 만들면 재밌겠다는 생각이 들어 만든 사이트입니다.</p>
         <div class="desTitle">
           <p>Main-Function</p>
           <p>제품 보기, 직접 피자 만들기, 오시는 길(Kakao Map)</p>
@@ -181,7 +186,6 @@
 </template>
 <script>
 
-import { onMounted } from '@vue/runtime-core'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination } from 'swiper'
 import 'swiper/swiper-bundle.min.css'
@@ -192,27 +196,13 @@ export default {
     SwiperSlide
   },
   setup () {
-    const goToEggSite = () => {
-      open('https://segg-1.web.app/')
-    }
-    const goToEggGit = () => {
-      open('https://github.com/swc9803/eggtest')
-    }
-    const goToGsapSite = () => {
-      open('https://pofo-55041.web.app/sea')
-    }
-    const goToPortfolioGit = () => {
-      open('https://github.com/swc9803/portf')
-    }
-    const goToReviewSite = () => {
-      open('https://rhdyd-a7e3b.firebaseapp.com/')
-    }
-    const goToPizzaSite = () => {
-      open('https://pizza-48258.firebaseapp.com/')
-    }
-    onMounted(() => {
+    const goToEggSite = () => { open('https://segg-1.web.app/') }
+    const goToEggGit = () => { open('https://github.com/swc9803/eggtest') }
+    const goToGsapSite = () => { open('https://pofo-55041.web.app/sea') }
+    const goToPortfolioGit = () => { open('https://github.com/swc9803/portf') }
+    const goToReviewSite = () => { open('https://rhdyd-a7e3b.firebaseapp.com/') }
+    const goToPizzaSite = () => { open('https://pizza-48258.firebaseapp.com/') }
 
-    })
     return {
       goToEggSite,
       goToEggGit,

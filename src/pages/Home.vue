@@ -171,6 +171,10 @@ export default {
     }
   }
 }
+.skills,
+.myworks {
+  position: relative;
+}
 .contact {
   background: #212121;
 }
