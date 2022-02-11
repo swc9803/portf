@@ -219,7 +219,7 @@ nav {
 @media screen and (min-width: 800px) {
  .items {
     p {
-      &::before {
+      &:before {
         position: absolute;
         content: attr(class);
         background: rgb(100, 100, 100);
@@ -230,7 +230,7 @@ nav {
         opacity: 1;
         transition: 0.4s;
       }
-      &:hover::before {
+      &:hover:before {
         clip-path: inset(0 0 0 0);
       }
     }

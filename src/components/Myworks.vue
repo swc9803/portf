@@ -186,9 +186,12 @@
 </template>
 <script>
 
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Pagination } from 'swiper'
+import { Pagination, Scrollbar, A11y } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue.js'
 import 'swiper/swiper-bundle.min.css'
+import 'swiper/modules/navigation/navigation.min.css'
+import 'swiper/modules/pagination/pagination.min.css'
+import 'swiper/modules/scrollbar/scrollbar.min.css'
 
 export default {
   components: {
@@ -210,7 +213,7 @@ export default {
       goToPortfolioGit,
       goToReviewSite,
       goToPizzaSite,
-      modules: [Pagination]
+      modules: [Pagination, Scrollbar, A11y]
     }
   }
 }
