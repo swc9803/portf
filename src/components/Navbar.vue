@@ -103,10 +103,11 @@ export default {
     // progressbar
     const progressbar = ref()
     const changeProgress = () => {
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
       addEventListener('scroll', () => {
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
         const scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-        progressbar.value.style.width = `${(scrollTop / height) * 100}%`
+        var scrolled = (scrollTop / height) * 100
+        progressbar.value.style.width = scrolled + '%'
       })
     }
 
@@ -218,6 +219,7 @@ nav {
 }
 @media screen and (min-width: 800px) {
  .items {
+   opacity: 1 !important;
     p {
       &:before {
         position: absolute;
