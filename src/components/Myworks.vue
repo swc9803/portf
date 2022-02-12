@@ -128,7 +128,7 @@
         <swiper-slide><img src="@/assets/review/review5.png"></swiper-slide>
       </swiper>
       <div class="projectDes">
-        <p class="firstDes">제가 vue를 배운 후 제일 처음으로 만든 사이트입니다. No-Sql인 Firebase를 사용해 클라우드 데이터베이스를 관리하였습니다.</p>
+        <p class="firstDes">제가 vue를 배운 후 제일 처음으로 만든 사이트입니다. No-SQL인 Firebase를 사용해 클라우드 데이터베이스를 관리하였습니다.</p>
         <p>css에 대한 지식이 부족했던 시기라 Bootstrap 클래스의 margin 기능을 많이 활용하였습니다. CRUD에 대해 많은 것을 알게 되었고, 데이터를 효율적으로 관리하는 방법을 배우게 만들어준 사이트 제작이었습니다.</p>
         <div class="desTitle">
           <p>Main-Function</p>
@@ -248,6 +248,7 @@ export default {
       overflow: hidden;
       cursor: pointer;
       img {
+        margin-bottom: 30px;
         width: 100%;
       }
     }
