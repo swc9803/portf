@@ -492,6 +492,7 @@ h2 {
     section {
       display: block;
       div {
+        margin-top: 0;
         p {
           padding-top: 20px;
         }
