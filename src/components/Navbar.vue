@@ -220,7 +220,7 @@ nav {
 @media screen and (min-width: 800px) {
  .items {
    opacity: 1 !important;
-   pointer-events: auto;
+   pointer-events: auto !important;
     p {
       &:before {
         position: absolute;
