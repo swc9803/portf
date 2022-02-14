@@ -104,7 +104,7 @@ export default {
       }
       svg {
         position: relative;
-        top: -11%;
+        top: -9%;
         width: 100%;
         pointer-events: none;
       }

@@ -133,6 +133,7 @@ export default {
 @import '@/style/Mainstyle';
 
 .main {
+  pointer-events: none;
   .space {
     position: absolute;
     width: 100%;
