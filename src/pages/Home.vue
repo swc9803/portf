@@ -133,7 +133,6 @@ export default {
 @import '@/style/Mainstyle';
 
 .main {
-  pointer-events: none;
   .space {
     position: absolute;
     width: 100%;
@@ -190,6 +189,7 @@ export default {
 }
 @media screen and (max-width: 480px) {
   .main {
+    pointer-events: none;
     .wrapper {
       p {
         font-size: 1.6em;
@@ -197,4 +197,5 @@ export default {
     }
   }
 }
+
 </style>

@@ -149,6 +149,43 @@
     </div>
   </div>
   <div class="projectInfo">
+    <p class="projectTitle">Beer Promotion Site</p>
+    <div class="sliderWrap">
+      <swiper class="slider"
+        :slidesPerView="1"
+        :spaceBetween="20"
+        :loop="true"
+        :pagination="{ clickable: true }"
+        :modules="modules"
+      >
+        <swiper-slide><img src="@/assets/beer/beerEx1.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/beer/beerEx2.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/beer/beerEx3.png"></swiper-slide>
+        <swiper-slide><img src="@/assets/beer/beerEx4.png"></swiper-slide>
+      </swiper>
+      <div class="projectDes">
+        <p class="firstDes">간단한 svg파일을 제작해 각각의 path에 애니메이션을 넣어 만든 사이트입니다. 스크롤을 내리면 좌우로 스크롤이 되며 각 색션에 맞춰집니다.</p>
+        <p>본 사이트를 제작하며 스크롤로 좌우 스크롤을 하는 방법을 알게되었으며, gsap의 scrollTrigger와 scrollTo에 대한 지식이 더 늘게해주었습니다.</p>
+        <div class="desTitle">
+          <p>Main-Function</p>
+          <p>좌우 스크롤, 네비게이션 바, svg파일 상호작용</p>
+        </div>
+        <div class="desTitle">
+          <p>Front-End</p>
+          <p><img src="@/assets/vue.png">Vue</p>
+        </div>
+        <div class="desTitle">
+          <p>Distribution</p>
+          <p><img src="@/assets/firebase.png">Firebase</p>
+        </div>
+        <div class="icons">
+          <img src="@/assets/homeIcon.png" @click="goToBeerSite">
+          <img src="@/assets/githubIcon.png" @click="goToBeerGit">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="projectInfo">
     <p class="projectTitle">Custom Made Pizza Site</p>
     <div class="sliderWrap">
       <swiper class="slider"
@@ -205,6 +242,8 @@ export default {
     const goToPortfolioGit = () => { open('https://github.com/swc9803/portf') }
     const goToReviewSite = () => { open('https://rhdyd-a7e3b.firebaseapp.com/') }
     const goToPizzaSite = () => { open('https://pizza-48258.firebaseapp.com/') }
+    const goToBeerSite = () => { open('https://sungsbeer.web.app/') }
+    const goToBeerGit = () => { open('https://github.com/swc9803/beer') }
 
     return {
       goToEggSite,
@@ -213,6 +252,8 @@ export default {
       goToPortfolioGit,
       goToReviewSite,
       goToPizzaSite,
+      goToBeerSite,
+      goToBeerGit,
       modules: [Pagination, Scrollbar, A11y]
     }
   }
